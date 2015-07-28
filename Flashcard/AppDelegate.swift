@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        Parse.setApplicationId("qHfjy6kpBVVbVRC2Wne4t3h40iO1AUwZNvybFQBz", clientKey: "bRjnuE2RwhrO5MxCLQImlm5nPyD8vqYfvdl772xg")
+        
+        StudySets.registerSubclass()
+        Card.registerSubclass()
+        
+        PFUser.logInWithUsername("test", password: "test")
+        
+        println(PFUser.currentUser())
+        
         // Override point for customization after application launch.
         return true
     }
