@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32820B636B45B8B4CB33915C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B37B778CEB3A8D31F00B94 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5C9640B21B5EFE3800E70815 /* StudySetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B11B5EFE3800E70815 /* StudySetCell.swift */; };
+		5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */; };
 		5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* StudySetsScreen.swift */; };
 		5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B61B6160E400E70815 /* CreateSetViewController.swift */; };
 		5C9640BC1B6211DF00E70815 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640BB1B6211DE00E70815 /* Account.swift */; };
@@ -16,7 +16,7 @@
 		5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B8311B62F06D0084B9FA /* Card.swift */; };
 		5CC9B8351B62F27F0084B9FA /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B8341B62F27F0084B9FA /* AddCardView.swift */; };
 		5CC9B83B1B66C8D40084B9FA /* StudySetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B83A1B66C8D40084B9FA /* StudySetViewController.swift */; };
-		5CC9B83F1B66E7580084B9FA /* StudyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B83E1B66E7580084B9FA /* StudyCell.swift */; };
+		5CC9B83F1B66E7580084B9FA /* StudySetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B83E1B66E7580084B9FA /* StudySetCell.swift */; };
 		5CCA219C1B59F2E500CCD4F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA219B1B59F2E500CCD4F4 /* AppDelegate.swift */; };
 		5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA219D1B59F2E500CCD4F4 /* StudySetsViewController.swift */; };
 		5CCA21A11B59F2E500CCD4F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCA219F1B59F2E500CCD4F4 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		22B37B778CEB3A8D31F00B94 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9640B11B5EFE3800E70815 /* StudySetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetCell.swift; sourceTree = "<group>"; };
+		5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsCell.swift; sourceTree = "<group>"; };
 		5C9640B31B5F646000E70815 /* StudySetsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsScreen.swift; sourceTree = "<group>"; };
 		5C9640B61B6160E400E70815 /* CreateSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
 		5C9640BB1B6211DE00E70815 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		5CC9B8311B62F06D0084B9FA /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5CC9B8341B62F27F0084B9FA /* AddCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		5CC9B83A1B66C8D40084B9FA /* StudySetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetViewController.swift; sourceTree = "<group>"; };
-		5CC9B83E1B66E7580084B9FA /* StudyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCell.swift; sourceTree = "<group>"; };
+		5CC9B83E1B66E7580084B9FA /* StudySetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetCell.swift; sourceTree = "<group>"; };
 		5CCA21961B59F2E500CCD4F4 /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCA219A1B59F2E500CCD4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CCA219B1B59F2E500CCD4F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 				5CD683E81B5D9A95002D7119 /* Helpers */,
 				5CCA219B1B59F2E500CCD4F4 /* AppDelegate.swift */,
 				5C9640B31B5F646000E70815 /* StudySetsScreen.swift */,
-				5C9640B11B5EFE3800E70815 /* StudySetCell.swift */,
-				5CC9B83E1B66E7580084B9FA /* StudyCell.swift */,
+				5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */,
+				5CC9B83E1B66E7580084B9FA /* StudySetCell.swift */,
 				5CCA219F1B59F2E500CCD4F4 /* Main.storyboard */,
 				5CCA21A21B59F2E500CCD4F4 /* Images.xcassets */,
 				5CCA21A41B59F2E500CCD4F4 /* LaunchScreen.xib */,
@@ -353,14 +353,14 @@
 				5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */,
 				5CCA219C1B59F2E500CCD4F4 /* AppDelegate.swift in Sources */,
 				5CC9B8351B62F27F0084B9FA /* AddCardView.swift in Sources */,
-				5C9640B21B5EFE3800E70815 /* StudySetCell.swift in Sources */,
+				5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */,
 				5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */,
 				5CD683EA1B5D9AD0002D7119 /* ParseHelper.swift in Sources */,
 				5C9640BC1B6211DF00E70815 /* Account.swift in Sources */,
 				5CC9B82E1B62B81F0084B9FA /* StudySets.swift in Sources */,
 				5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */,
 				5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */,
-				5CC9B83F1B66E7580084B9FA /* StudyCell.swift in Sources */,
+				5CC9B83F1B66E7580084B9FA /* StudySetCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

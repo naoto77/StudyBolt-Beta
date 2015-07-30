@@ -9,40 +9,42 @@
 
 import UIKit
 import Parse
+import ConvenienceKit
 
-class StudySetViewController: UIViewController{
+class StudySetViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleInStudy: UILabel!
     @IBOutlet weak var studyButton: UIButton!
     
     @IBOutlet weak var numberOfCards: UILabel!
-    var studySet : PFObject!
+    var studySet : StudySets!
+    
+    //declare an array to "store cardObjects" as a class property
+    var cardsObjects = [Card]()
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
-        
-//        var cardQuery = PFQuery(className: Card)
-        
-        
-//        var query = PFQuery(className:"Card")
-//        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-//            if error == nil {
-//                for object in objects {
-//                    // Do something
-//                }
-//            } else {
-//                println(error)
-//            }
-//        }
-        
-        
+        //set dataSource
+        tableView.dataSource = self
         
         //fetch data from Parse and put those in titleInStudy and numberOfCards
         self.titleInStudy.text = studySet["title"] as? String
         if let numberOfCards = studySet["numberOfCards"] as? NSNumber {
             self.numberOfCards.text = numberOfCards.stringValue
+        }
+
+        
+        
+        //fetch Card class from Parse and sort it by StudySets pointer
+        var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
+        cardsQuery.whereKey("studySets", equalTo: studySet)
+        //the values are optional so unwrap it by optional binding
+        if let cards = cardsQuery.findObjects() as? [Card] {
+            cardsObjects = cards
+            
         }
     }
     
@@ -51,9 +53,28 @@ class StudySetViewController: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     
+    //Return a number of objects
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cardsObjects.count
+    }
     
-    
-    
+    //set index for array by using indexPath which fetches data from ViewController via data source
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("StudySetCell") as! StudySetCell
+        
+        let termInStudyScene = cardsObjects[indexPath.row].term
+        let definitionInStudyScene = cardsObjects[indexPath.row].definition
+            
+            //put each data into cells
+            cell.termInStudyScene.text = termInStudyScene
+            cell.definitionInStudyScene.text = definitionInStudyScene
+        
+        
+        
+        return cell
+    }
 }

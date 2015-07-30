@@ -33,7 +33,7 @@ class StudySetsViewController: UIViewController, TimelineComponentTarget {
     // Timeline Component Protocol
     let defaultRange = 0...10
     let additionalRangeSize = 5
-    var timelineComponent: TimelineComponent<PFObject, StudySetsViewController>!
+    var timelineComponent: TimelineComponent<StudySets, StudySetsViewController>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +48,13 @@ class StudySetsViewController: UIViewController, TimelineComponentTarget {
     }
     
     
-    func loadInRange(range: Range<Int>, completionBlock: ([PFObject]?) -> Void) {
+    func loadInRange(range: Range<Int>, completionBlock: ([StudySets]?) -> Void) {
         ParseHelper.studysetRequestforCurrentUser(range) {
             (result: [AnyObject]?, error: NSError?) -> Void in
             if let error = error {
             }
             
-            let posts = result as? [PFObject] ?? []
+            let posts = result as? [StudySets] ?? []
             completionBlock(posts)
         }
     }
@@ -83,7 +83,7 @@ extension StudySetsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("StudySetCell") as! StudySetCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("StudySetsCell") as! StudySetsCell
         
 
         let object = timelineComponent.content[indexPath.row]
