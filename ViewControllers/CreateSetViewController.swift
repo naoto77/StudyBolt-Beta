@@ -24,6 +24,7 @@ class CreateSetViewController: UIViewController {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("textFieldDidChange:"), name: UITextFieldTextDidChangeNotification, object: nil)
     }
     

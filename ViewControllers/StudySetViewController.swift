@@ -11,6 +11,7 @@ import UIKit
 import Parse
 import ConvenienceKit
 
+
 class StudySetViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -77,4 +78,23 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         
         return cell
     }
+    
+    
+    //pass values from StudySets to StudySet
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "toFlashCard"){
+            //Create an instance of FlashCardViewController
+            var flashCardView: FlashCardViewController = segue.destinationViewController as! FlashCardViewController
+            
+            //store object in a variable
+            let object = studySet
+            //put the object in FlashCardViewController's property
+            flashCardView.studySet = object
+        }
+        
+    }
+    
+    
+    
+    
 }

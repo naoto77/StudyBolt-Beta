@@ -12,6 +12,8 @@
 		5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* StudySetsScreen.swift */; };
 		5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B61B6160E400E70815 /* CreateSetViewController.swift */; };
 		5C9640BC1B6211DF00E70815 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640BB1B6211DE00E70815 /* Account.swift */; };
+		5CA1472B1B6AA9B000E026D9 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */; };
+		5CA1472D1B6AE22600E026D9 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1472C1B6AE22600E026D9 /* FlashCardView.swift */; };
 		5CC9B82E1B62B81F0084B9FA /* StudySets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B82D1B62B81F0084B9FA /* StudySets.swift */; };
 		5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B8311B62F06D0084B9FA /* Card.swift */; };
 		5CC9B8351B62F27F0084B9FA /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9B8341B62F27F0084B9FA /* AddCardView.swift */; };
@@ -42,6 +44,8 @@
 		5C9640B31B5F646000E70815 /* StudySetsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsScreen.swift; sourceTree = "<group>"; };
 		5C9640B61B6160E400E70815 /* CreateSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
 		5C9640BB1B6211DE00E70815 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
+		5CA1472C1B6AE22600E026D9 /* FlashCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		5CC9B82D1B62B81F0084B9FA /* StudySets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySets.swift; sourceTree = "<group>"; };
 		5CC9B8311B62F06D0084B9FA /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5CC9B8341B62F27F0084B9FA /* AddCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				5CCA219D1B59F2E500CCD4F4 /* StudySetsViewController.swift */,
 				5C9640B61B6160E400E70815 /* CreateSetViewController.swift */,
 				5CC9B83A1B66C8D40084B9FA /* StudySetViewController.swift */,
+				5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = SOURCE_ROOT;
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				5CC9B8341B62F27F0084B9FA /* AddCardView.swift */,
+				5CA1472C1B6AE22600E026D9 /* FlashCardView.swift */,
 			);
 			path = Views;
 			sourceTree = SOURCE_ROOT;
@@ -357,6 +363,8 @@
 				5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */,
 				5CD683EA1B5D9AD0002D7119 /* ParseHelper.swift in Sources */,
 				5C9640BC1B6211DF00E70815 /* Account.swift in Sources */,
+				5CA1472B1B6AA9B000E026D9 /* FlashCardViewController.swift in Sources */,
+				5CA1472D1B6AE22600E026D9 /* FlashCardView.swift in Sources */,
 				5CC9B82E1B62B81F0084B9FA /* StudySets.swift in Sources */,
 				5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */,
 				5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */,
