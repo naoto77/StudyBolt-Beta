@@ -9,7 +9,7 @@
         <!--Study-->
         <scene sceneID="H7X-dt-FlP">
             <objects>
-                <viewController id="wDX-om-4Ur" customClass="StudySetViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudySetViewController" id="wDX-om-4Ur" customClass="StudySetViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wkB-cJ-0AP"/>
                         <viewControllerLayoutGuide type="bottom" id="NO2-Fj-FKb"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-NW-NZF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-NW-NZF">
                                 <rect key="frame" x="0.0" y="320" width="600" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -139,7 +139,7 @@
         <!--Flash Card View Controller-->
         <scene sceneID="sQy-LV-bd7">
             <objects>
-                <viewController id="Tg9-iZ-yfO" customClass="FlashCardViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlashCardViewController" id="Tg9-iZ-yfO" customClass="FlashCardViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VRY-TF-Uqa"/>
                         <viewControllerLayoutGuide type="bottom" id="oOa-zF-D7w"/>
@@ -400,7 +400,7 @@
         <!--Home-->
         <scene sceneID="Cmq-7E-qSO">
             <objects>
-                <viewController id="pJT-JF-WR0" customClass="StudySetsViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudySetsViewController" id="pJT-JF-WR0" customClass="StudySetsViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rXY-mG-bjD"/>
                         <viewControllerLayoutGuide type="bottom" id="LXu-EZ-qgX"/>
@@ -536,7 +536,7 @@
         <!--Setting-->
         <scene sceneID="L6S-gK-yEb">
             <objects>
-                <viewController title="Setting" id="rs5-FP-VNg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" title="Setting" id="rs5-FP-VNg" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vmg-fr-XAB"/>
                         <viewControllerLayoutGuide type="bottom" id="36r-El-DmE"/>
@@ -571,7 +571,7 @@
         <!--Create Set-->
         <scene sceneID="p6k-Ns-gDG">
             <objects>
-                <viewController id="KXh-GJ-8yY" customClass="CreateSetViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateSetViewController" id="KXh-GJ-8yY" customClass="CreateSetViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MZI-Lc-wX5"/>
                         <viewControllerLayoutGuide type="bottom" id="8zq-Jp-DOu"/>
@@ -778,7 +778,7 @@
         <!--Navigation Controller-->
         <scene sceneID="0Fg-b9-gS8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6P9-JD-L37" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="6P9-JD-L37" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wYR-UI-OLE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

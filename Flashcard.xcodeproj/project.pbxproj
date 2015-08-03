@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32820B636B45B8B4CB33915C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B37B778CEB3A8D31F00B94 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */; };
+		5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */; };
 		5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */; };
 		5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* StudySetsScreen.swift */; };
 		5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B61B6160E400E70815 /* CreateSetViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		22B37B778CEB3A8D31F00B94 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
+		5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsCell.swift; sourceTree = "<group>"; };
 		5C9640B31B5F646000E70815 /* StudySetsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsScreen.swift; sourceTree = "<group>"; };
 		5C9640B61B6160E400E70815 /* CreateSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				5CD683E91B5D9AD0002D7119 /* ParseHelper.swift */,
+				5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */,
+				5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */,
 			);
 			path = Helpers;
 			sourceTree = SOURCE_ROOT;
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CC9B83B1B66C8D40084B9FA /* StudySetViewController.swift in Sources */,
+				5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */,
 				5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */,
 				5CCA219C1B59F2E500CCD4F4 /* AppDelegate.swift in Sources */,
 				5CC9B8351B62F27F0084B9FA /* AddCardView.swift in Sources */,
@@ -367,6 +374,7 @@
 				5CA1472D1B6AE22600E026D9 /* FlashCardView.swift in Sources */,
 				5CC9B82E1B62B81F0084B9FA /* StudySets.swift in Sources */,
 				5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */,
+				5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */,
 				5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */,
 				5CC9B83F1B66E7580084B9FA /* StudySetCell.swift in Sources */,
 			);
@@ -502,6 +510,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -514,6 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
