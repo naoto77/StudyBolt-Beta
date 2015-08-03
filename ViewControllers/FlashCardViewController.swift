@@ -58,20 +58,64 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         let termString = cardsObjects[cardIndex].term
         flashCardView1.termInFlashCard.text = termString
         
+        
+        
+        
     }
     
     
     
     override func viewWillAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+        super.viewWillAppear(animated)
+          updateLabels()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+          moveToCenter()
+          updateLocking()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //update Labels
+    func updateLabels() {
+        
+        // Also needs to update text field content
+        if cardIndex > 0 {
+            flashCardView0.termInFlashCard.text = cardsObjects[cardIndex - 1].term
+        } else {
+            flashCardView0.termInFlashCard.text = ""
+        }
+        
+        flashCardView1.termInFlashCard.text = cardsObjects[cardIndex].term
+        
+        if cardIndex + 1 < cardsObjects.count {
+            flashCardView2.termInFlashCard.text = cardsObjects[cardIndex + 1].term
+        } else {
+            flashCardView2.termInFlashCard.text = nil
+        }
+    }
+    
+    
+    //Update locking
+    func updateLocking() {
+        if cardIndex <= 0 {
+            lockScrollViewTop()
+        }
+        else{
+            if cardIndex + 1 >= cardsObjects.count{
+                lockScrollViewBottom()
+            }
+        }
+        
+    }
+    
+    
     
     
     
@@ -81,17 +125,36 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         scrollView.contentOffset = CGPoint(x: 0, y: scrollView.frame.size.height)
     }
     
+    func lockScrollView() {
+        let insets = UIEdgeInsets(top: -scrollView.frame.size.height, left: 0, bottom: -scrollView.frame.size.height, right: 0)
+        scrollView.contentInset = insets
+    }
+    
+    func lockScrollViewBottom() {
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: -scrollView.frame.size.height, right: 0)
+        scrollView.contentInset = insets
+    }
+    
+    func lockScrollViewTop() {
+        let insets = UIEdgeInsets(top: -scrollView.frame.size.height, left: 0, bottom: 0, right: 0)
+        scrollView.contentInset = insets
+    }
+    
+    func unlockScrollView() {
+        scrollView.contentInset = UIEdgeInsetsZero
+    }
+    
+   
+    
+
     
 }
 
 
-
+// called when scroll view grinds to a halt
 extension FlashCardViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
-        
-        println(offset.y)
-        println(scrollView.frame.size.height)
         
         if offset.y != scrollView.frame.size.height {
             
@@ -101,23 +164,12 @@ extension FlashCardViewController: UIScrollViewDelegate {
                 cardIndex += 1
             }
             
-            //
+            
             moveToCenter()
             
+            updateLabels()
             
-            // Also needs to update text field content
-            if cardIndex > 0 {
-                flashCardView0.termInFlashCard.text = cardsObjects[cardIndex - 1].term
-            }
-            
-            flashCardView1.termInFlashCard.text = cardsObjects[cardIndex].term
-            
-            if cardIndex + 1 < cardsObjects.count {
-                flashCardView2.termInFlashCard.text = cardsObjects[cardIndex + 1].term
-            } else {
-                flashCardView2.termInFlashCard.text = nil
-            }
-            
+            updateLocking()
         }
     }
 }
