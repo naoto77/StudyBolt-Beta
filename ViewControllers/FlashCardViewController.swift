@@ -104,6 +104,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     
     //Update locking
     func updateLocking() {
+        unlockScrollView()
         if cardIndex <= 0 {
             lockScrollViewTop()
         }
