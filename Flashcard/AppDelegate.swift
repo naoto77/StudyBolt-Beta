@@ -84,6 +84,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = startViewController;
         self.window?.makeKeyAndVisible()
         
+        
+        //UICollor setting
+        UINavigationBar.appearance().barTintColor = StyleConstants.pastelPurple
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().translucent = false
+        
+        UIToolbar.appearance().barTintColor = StyleConstants.pastelPurple
+        UIToolbar.appearance().tintColor = UIColor.whiteColor()
+        UIToolbar.appearance().translucent = false
+        
+        
+        
         // Override point for customization after application launch.
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

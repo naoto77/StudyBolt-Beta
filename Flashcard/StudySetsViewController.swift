@@ -70,6 +70,16 @@ class StudySetsViewController: UIViewController, TimelineComponentTarget {
         }
         
     }
+    
+    
+    
+//    //Delete functionality
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            .removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//        }
+//    }
 }
 
 

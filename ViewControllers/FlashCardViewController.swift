@@ -22,6 +22,8 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var flashCardView0: FlashCardView!
     @IBOutlet weak var flashCardView1: FlashCardView!
     @IBOutlet weak var flashCardView2: FlashCardView!
+    @IBOutlet weak var flashCardViewL: FlashCardView!
+    @IBOutlet weak var flashCardViewR: FlashCardView!
     
     
     //Instantiate card class in Models as an array to access to Card class on Parse
@@ -58,7 +60,9 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         let termString = cardsObjects[cardIndex].term
         flashCardView1.termInFlashCard.text = termString
         
-        
+        let definitionString = cardsObjects[cardIndex].definition
+        flashCardViewL.definitionInFlashCard.text = definitionString
+        flashCardViewR.definitionInFlashCard.text = definitionString
         
         
     }
@@ -68,6 +72,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
           updateLabels()
+          updateLabelsInLeftAndRight()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -82,7 +87,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     }
     
     
-    //update Labels
+    //update Labels in vertical swiping
     func updateLabels() {
         
         // Also needs to update text field content
@@ -102,11 +107,33 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     }
     
     
+    //update Label in horizontal swiping
+    func updateLabelsInLeftAndRight() {
+        
+        // Also needs to update text field content
+        if cardIndex > 0 {
+            flashCardViewL.definitionInFlashCard.text = cardsObjects[cardIndex - 1].definition
+            flashCardViewR.definitionInFlashCard.text = cardsObjects[cardIndex - 1].definition
+        } else {
+            flashCardViewL.definitionInFlashCard.text = ""
+            flashCardViewR.definitionInFlashCard.text = ""
+        }
+        
+        flashCardViewL.definitionInFlashCard.text = cardsObjects[cardIndex].definition
+        flashCardViewR.definitionInFlashCard.text = cardsObjects[cardIndex].definition
+        
+    }
+    
+    
     //Update locking
     func updateLocking() {
         unlockScrollView()
         if cardIndex <= 0 {
             lockScrollViewTop()
+            
+            if cardsObjects.count == 1{
+                lockScrollView()
+            }
         }
         else{
             if cardIndex + 1 >= cardsObjects.count{
@@ -123,7 +150,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     //methods controlling placements of views in scroll view
     func moveToCenter() {
         //Why should I set frameSizeHeight to contentOffset's y?
-        scrollView.contentOffset = CGPoint(x: 0, y: scrollView.frame.size.height)
+        scrollView.contentOffset = CGPoint(x: scrollView.frame.size.width, y: scrollView.frame.size.height)
     }
     
     func lockScrollView() {
@@ -144,9 +171,6 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     func unlockScrollView() {
         scrollView.contentInset = UIEdgeInsetsZero
     }
-    
-   
-    
 
     
 }
@@ -169,6 +193,7 @@ extension FlashCardViewController: UIScrollViewDelegate {
             moveToCenter()
             
             updateLabels()
+            updateLabelsInLeftAndRight()
             
             updateLocking()
         }

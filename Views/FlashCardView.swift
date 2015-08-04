@@ -11,5 +11,5 @@ import UIKit
 class FlashCardView: UIView{
     
     @IBOutlet var termInFlashCard: UILabel!
-
+    @IBOutlet var definitionInFlashCard: UILabel!
 }

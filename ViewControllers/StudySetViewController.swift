@@ -9,7 +9,6 @@
 
 import UIKit
 import Parse
-import ConvenienceKit
 
 
 class StudySetViewController: UIViewController, UITableViewDataSource {
@@ -45,8 +44,8 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         //the values are optional so unwrap it by optional binding
         if let cards = cardsQuery.findObjects() as? [Card] {
             cardsObjects = cards
-            
         }
+        
     }
     
     

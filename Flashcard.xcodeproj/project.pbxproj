@@ -10,6 +10,7 @@
 		32820B636B45B8B4CB33915C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B37B778CEB3A8D31F00B94 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */; };
 		5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */; };
+		5C07E41F1B70529A0037B59A /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E41E1B70529A0037B59A /* StyleConstants.swift */; };
 		5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */; };
 		5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* StudySetsScreen.swift */; };
 		5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B61B6160E400E70815 /* CreateSetViewController.swift */; };
@@ -44,6 +45,7 @@
 		22B37B778CEB3A8D31F00B94 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		5C07E41E1B70529A0037B59A /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsCell.swift; sourceTree = "<group>"; };
 		5C9640B31B5F646000E70815 /* StudySetsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsScreen.swift; sourceTree = "<group>"; };
 		5C9640B61B6160E400E70815 /* CreateSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5C07E41D1B7052760037B59A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5C07E41E1B70529A0037B59A /* StyleConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = SOURCE_ROOT;
+		};
 		5C9640B51B61609300E70815 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 		5CCA21981B59F2E500CCD4F4 /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
+				5C07E41D1B7052760037B59A /* Constants */,
 				5C9640B81B61B88800E70815 /* Models */,
 				5C9640B51B61609300E70815 /* ViewControllers */,
 				5CC9B8331B62F26F0084B9FA /* Views */,
@@ -362,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CC9B83B1B66C8D40084B9FA /* StudySetViewController.swift in Sources */,
+				5C07E41F1B70529A0037B59A /* StyleConstants.swift in Sources */,
 				5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */,
 				5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */,
 				5CCA219C1B59F2E500CCD4F4 /* AppDelegate.swift in Sources */,

@@ -76,6 +76,7 @@
                                         <connections>
                                             <outlet property="definitionInStudyScene" destination="TSB-5E-hIr" id="eh7-1a-igj"/>
                                             <outlet property="termInStudyScene" destination="iFd-hY-pSD" id="rOr-eS-aHs"/>
+                                            <segue destination="KXh-GJ-8yY" kind="show" id="4hp-a6-JSk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -152,10 +153,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Iq-Zo-GaW">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1800" height="1800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-hY-bkJ" userLabel="Flash Card View0" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                                <rect key="frame" x="600" y="0.0" width="600" height="600"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="termUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-rV-PW1">
                                                         <rect key="frame" x="175" y="250" width="250" height="100"/>
@@ -178,10 +179,14 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xI-nR-ziO" userLabel="Flash Card View1" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
+                                                <rect key="frame" x="600" y="600" width="600" height="600"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermCenter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woW-6e-F5l">
-                                                        <rect key="frame" x="0.0" y="282" width="600" height="36"/>
+                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="ZKp-sr-d1e"/>
+                                                            <constraint firstAttribute="height" constant="100" id="ayb-Sc-DQj"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -197,10 +202,14 @@
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="Flash Card View2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1200" width="600" height="600"/>
+                                                <rect key="frame" x="600" y="1200" width="600" height="600"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
-                                                        <rect key="frame" x="266.5" y="282.5" width="67.5" height="36"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
+                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="BxU-Xw-sNq"/>
+                                                            <constraint firstAttribute="height" constant="100" id="qD8-5D-8sy"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -215,35 +224,107 @@
                                                     <outlet property="termInFlashCard" destination="R8P-9u-s6h" id="lET-QR-wRu"/>
                                                 </connections>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h77-O3-xzM" userLabel="Flash Card ViewL" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermCenter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxQ-dB-huy">
+                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="681-K7-wzm"/>
+                                                            <constraint firstAttribute="height" constant="100" id="O9g-jb-5AK"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="centerX" secondItem="dxQ-dB-huy" secondAttribute="centerX" id="0ZH-Yy-5Gu"/>
+                                                    <constraint firstAttribute="centerY" secondItem="dxQ-dB-huy" secondAttribute="centerY" id="fyi-qn-jkE"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="definitionInFlashCard" destination="dxQ-dB-huy" id="NXQ-g8-LtI"/>
+                                                    <outlet property="termInFlashCard" destination="dxQ-dB-huy" id="bWT-ZD-syn"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWJ-ao-AHW" userLabel="Flash Card ViewR" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
+                                                <rect key="frame" x="1200" y="600" width="600" height="600"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermCenter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvT-Sf-yXQ">
+                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="FZr-Ux-Vbu"/>
+                                                            <constraint firstAttribute="height" constant="100" id="yoE-bw-n0K"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="centerY" secondItem="AvT-Sf-yXQ" secondAttribute="centerY" id="dKa-58-zbE"/>
+                                                    <constraint firstAttribute="centerX" secondItem="AvT-Sf-yXQ" secondAttribute="centerX" id="w5Z-ZO-6E8"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="definitionInFlashCard" destination="AvT-Sf-yXQ" id="cn4-B7-bXE"/>
+                                                    <outlet property="termInFlashCard" destination="AvT-Sf-yXQ" id="cqk-kw-Z3r"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="h77-O3-xzM" secondAttribute="top" id="0Ow-vT-Wsr"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="9xI-nR-ziO" secondAttribute="bottom" id="0kN-xy-ukV"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="width" secondItem="woW-6e-F5l" secondAttribute="width" id="3Je-CN-3nl"/>
-                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="Cwu-mB-wmk"/>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="h77-O3-xzM" secondAttribute="trailing" id="4BO-aQ-3G7"/>
                                             <constraint firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="HCY-Cg-i6Y"/>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="HWJ-ao-AHW" secondAttribute="top" id="Lt4-EY-cs8"/>
                                             <constraint firstAttribute="trailing" secondItem="XW0-hY-bkJ" secondAttribute="trailing" id="M0Q-jd-dUh"/>
+                                            <constraint firstAttribute="trailing" secondItem="HWJ-ao-AHW" secondAttribute="trailing" id="N9y-RM-BzB"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="height" secondItem="XW0-hY-bkJ" secondAttribute="height" id="NOT-79-xfa"/>
                                             <constraint firstItem="XW0-hY-bkJ" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="RTk-R6-IV8"/>
-                                            <constraint firstAttribute="trailing" secondItem="9xI-nR-ziO" secondAttribute="trailing" id="VCQ-co-Sah"/>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="cDD-T6-YAs" secondAttribute="leading" id="Wbr-Iu-fek"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="bWo-pL-Qic"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="XW0-hY-bkJ" secondAttribute="bottom" id="eej-GY-iFU"/>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="XW0-hY-bkJ" secondAttribute="leading" id="ks9-CB-hqF"/>
                                             <constraint firstAttribute="bottom" secondItem="cDD-T6-YAs" secondAttribute="bottom" id="lWS-aY-dbl"/>
                                             <constraint firstItem="XW0-hY-bkJ" firstAttribute="top" secondItem="0Iq-Zo-GaW" secondAttribute="top" id="lX8-Y1-rd1"/>
+                                            <constraint firstItem="9xI-nR-ziO" firstAttribute="trailing" secondItem="HWJ-ao-AHW" secondAttribute="leading" id="nCe-i6-gOt"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="height" secondItem="9xI-nR-ziO" secondAttribute="height" id="t2a-M6-Gjo"/>
+                                            <constraint firstItem="h77-O3-xzM" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="uhX-7x-uiK"/>
                                             <constraint firstAttribute="trailing" secondItem="cDD-T6-YAs" secondAttribute="trailing" id="uho-B1-apo"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="x7q-LI-G4j"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="HCY-Cg-i6Y"/>
+                                                <exclude reference="M0Q-jd-dUh"/>
+                                                <exclude reference="RTk-R6-IV8"/>
+                                                <exclude reference="3Je-CN-3nl"/>
+                                                <exclude reference="bWo-pL-Qic"/>
+                                                <exclude reference="t2a-M6-Gjo"/>
+                                                <exclude reference="uho-B1-apo"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="HWJ-ao-AHW" secondAttribute="width" id="0Ne-rD-awH"/>
+                                    <constraint firstItem="h77-O3-xzM" firstAttribute="height" secondItem="7mU-wW-tBi" secondAttribute="height" id="0nz-xV-5jv"/>
+                                    <constraint firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="5C6-fc-NFW"/>
+                                    <constraint firstAttribute="height" secondItem="cDD-T6-YAs" secondAttribute="height" id="9tL-4t-3ZV"/>
                                     <constraint firstItem="0Iq-Zo-GaW" firstAttribute="leading" secondItem="7mU-wW-tBi" secondAttribute="leading" id="L4M-ij-NsF"/>
                                     <constraint firstItem="0Iq-Zo-GaW" firstAttribute="top" secondItem="7mU-wW-tBi" secondAttribute="top" id="OPF-w8-2oy"/>
+                                    <constraint firstAttribute="height" secondItem="HWJ-ao-AHW" secondAttribute="height" id="QVq-xc-B7Y"/>
                                     <constraint firstAttribute="trailing" secondItem="0Iq-Zo-GaW" secondAttribute="trailing" id="RgR-x3-dya"/>
                                     <constraint firstItem="0Iq-Zo-GaW" firstAttribute="height" secondItem="7mU-wW-tBi" secondAttribute="height" multiplier="3" id="YkF-le-VYu"/>
-                                    <constraint firstItem="0Iq-Zo-GaW" firstAttribute="width" secondItem="7mU-wW-tBi" secondAttribute="width" id="mKp-po-UqA"/>
+                                    <constraint firstItem="0Iq-Zo-GaW" firstAttribute="width" secondItem="7mU-wW-tBi" secondAttribute="width" multiplier="3" id="mKp-po-UqA"/>
                                     <constraint firstAttribute="height" secondItem="XW0-hY-bkJ" secondAttribute="height" id="miV-eV-Xxf"/>
                                     <constraint firstAttribute="bottom" secondItem="0Iq-Zo-GaW" secondAttribute="bottom" id="wTR-fL-Bpc"/>
+                                    <constraint firstItem="h77-O3-xzM" firstAttribute="width" secondItem="7mU-wW-tBi" secondAttribute="width" id="zPq-Kf-MGX"/>
+                                    <constraint firstAttribute="width" secondItem="cDD-T6-YAs" secondAttribute="width" id="ztF-xQ-PPR"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -268,6 +349,8 @@
                         <outlet property="flashCardView0" destination="XW0-hY-bkJ" id="jga-bB-eeM"/>
                         <outlet property="flashCardView1" destination="9xI-nR-ziO" id="sOY-a8-HA0"/>
                         <outlet property="flashCardView2" destination="cDD-T6-YAs" id="iLL-gU-7mN"/>
+                        <outlet property="flashCardViewL" destination="h77-O3-xzM" id="Sh5-fa-Jkg"/>
+                        <outlet property="flashCardViewR" destination="HWJ-ao-AHW" id="jlM-rc-OUy"/>
                         <outlet property="scrollView" destination="7mU-wW-tBi" id="oyz-PV-lQs"/>
                     </connections>
                 </viewController>
@@ -773,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHh-lO-L0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="-608"/>
+            <point key="canvasLocation" x="1515" y="-1108"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Fg-b9-gS8">
@@ -796,6 +879,10 @@
     </scenes>
     <resources>
         <image name="Setting" width="50" height="50"/>
-        <image name="Study button" width="98" height="98"/>
+        <image name="Study button" width="92" height="92"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wYV-Je-NrI"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
