@@ -12,7 +12,7 @@
 		5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */; };
 		5C07E41F1B70529A0037B59A /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E41E1B70529A0037B59A /* StyleConstants.swift */; };
 		5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */; };
-		5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* StudySetsScreen.swift */; };
+		5C9640B41B5F646000E70815 /* ExampleForProgramaticalPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B31B5F646000E70815 /* ExampleForProgramaticalPlacement.swift */; };
 		5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640B61B6160E400E70815 /* CreateSetViewController.swift */; };
 		5C9640BC1B6211DF00E70815 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9640BB1B6211DE00E70815 /* Account.swift */; };
 		5CA1472B1B6AA9B000E026D9 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */; };
@@ -47,7 +47,7 @@
 		5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		5C07E41E1B70529A0037B59A /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsCell.swift; sourceTree = "<group>"; };
-		5C9640B31B5F646000E70815 /* StudySetsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsScreen.swift; sourceTree = "<group>"; };
+		5C9640B31B5F646000E70815 /* ExampleForProgramaticalPlacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleForProgramaticalPlacement.swift; sourceTree = "<group>"; };
 		5C9640B61B6160E400E70815 /* CreateSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSetViewController.swift; sourceTree = "<group>"; };
 		5C9640BB1B6211DE00E70815 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				5CC9B8331B62F26F0084B9FA /* Views */,
 				5CD683E81B5D9A95002D7119 /* Helpers */,
 				5CCA219B1B59F2E500CCD4F4 /* AppDelegate.swift */,
-				5C9640B31B5F646000E70815 /* StudySetsScreen.swift */,
+				5C9640B31B5F646000E70815 /* ExampleForProgramaticalPlacement.swift */,
 				5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */,
 				5CC9B83E1B66E7580084B9FA /* StudySetCell.swift */,
 				5CCA219F1B59F2E500CCD4F4 /* Main.storyboard */,
@@ -385,7 +385,7 @@
 				5CA1472B1B6AA9B000E026D9 /* FlashCardViewController.swift in Sources */,
 				5CA1472D1B6AE22600E026D9 /* FlashCardView.swift in Sources */,
 				5CC9B82E1B62B81F0084B9FA /* StudySets.swift in Sources */,
-				5C9640B41B5F646000E70815 /* StudySetsScreen.swift in Sources */,
+				5C9640B41B5F646000E70815 /* ExampleForProgramaticalPlacement.swift in Sources */,
 				5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */,
 				5CC9B8321B62F06D0084B9FA /* Card.swift in Sources */,
 				5CC9B83F1B66E7580084B9FA /* StudySetCell.swift in Sources */,

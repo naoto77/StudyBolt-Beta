@@ -8,7 +8,6 @@
 
 import Foundation
 import Parse
-import ConvenienceKit
 import Foundation
 
 class FlashCardViewController: UIViewController, UIScrollViewDelegate{

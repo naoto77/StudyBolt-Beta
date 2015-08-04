@@ -18,7 +18,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var studyButton: UIButton!
     
     @IBOutlet weak var numberOfCards: UILabel!
-    var studySet : StudySets!
+    var studySet: StudySets!
     
     //declare an array to "store cardObjects" as a class property
     var cardsObjects = [Card]()
