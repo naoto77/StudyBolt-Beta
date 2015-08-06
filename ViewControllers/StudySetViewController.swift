@@ -30,21 +30,13 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         //set dataSource
         tableView.dataSource = self
         
-        //fetch data from Parse and put those in titleInStudy and numberOfCards
-        self.titleInStudy.text = studySet["title"] as? String
-        if let numberOfCards = studySet["numberOfCards"] as? NSNumber {
-            self.numberOfCards.text = numberOfCards.stringValue
-        }
-
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
         
-        
-        //fetch Card class from Parse and sort it by StudySets pointer
-        var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
-        cardsQuery.whereKey("studySets", equalTo: studySet)
-        //the values are optional so unwrap it by optional binding
-        if let cards = cardsQuery.findObjects() as? [Card] {
-            cardsObjects = cards
-        }
+        populateData()
         
     }
     
@@ -52,6 +44,43 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func populateData(){
+        //fetch data from Parse and put those in titleInStudy and numberOfCards
+        self.titleInStudy.text = studySet["title"] as? String
+        if let numberOfCards = studySet["numberOfCards"] as? NSNumber {
+            self.numberOfCards.text = numberOfCards.stringValue
+        }
+        //Reload tableView
+        self.tableView.reloadData()
+    }
+    
+    
+    //Delete functionality
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let removedCard = cardsObjects.removeAtIndex(indexPath.row)
+            removedCard.deleteInBackground()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        
+        //update the number of cards on Parse
+        for card in self.cardsObjects {
+            studySet!.numberOfCards = cardsObjects.count
+            card.saveInBackgroundWithBlock(nil)
+            studySet?.saveInBackgroundWithBlock(nil)
+        }
+        
+        if cardsObjects.count == 0{
+            let removeStudySet = studySet.deleteInBackground()
+            // Bring you back to previous VC
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+        populateData()
+        
     }
 
     
@@ -74,25 +103,42 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
             cell.definitionInStudyScene.text = definitionInStudyScene
         
         
-        
         return cell
     }
     
     
-    //pass values from StudySets to StudySet
+    //pass values from StudySet to FlashCard and CreateSet
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toFlashCard"){
             //Create an instance of FlashCardViewController
             var flashCardView: FlashCardViewController = segue.destinationViewController as! FlashCardViewController
             
             //store object in a variable
-            let object = studySet
+            let objectToFlashCard = studySet
             //put the object in FlashCardViewController's property
-            flashCardView.studySet = object
+            flashCardView.studySet = objectToFlashCard
+        }
+        
+        else if(segue.identifier == "toCreateSetToEdit"){
+            var createSetView: CreateSetViewController = segue.destinationViewController as! CreateSetViewController
+            
+            let objectToCreateSet = studySet
+            createSetView.studySet = objectToCreateSet
+            
+            createSetView.cards = cardsObjects
+            createSetView.cardIndex = tableView.indexPathForSelectedRow()?.row ?? 0
+        
         }
         
     }
     
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        if segue.identifier == "createSetDone" {
+            let createSetVC = segue.sourceViewController as! CreateSetViewController
+            cardsObjects = createSetVC.cards
+            populateData()
+        }
+    }
     
     
     

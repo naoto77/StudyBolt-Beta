@@ -76,7 +76,7 @@
                                         <connections>
                                             <outlet property="definitionInStudyScene" destination="TSB-5E-hIr" id="eh7-1a-igj"/>
                                             <outlet property="termInStudyScene" destination="iFd-hY-pSD" id="rOr-eS-aHs"/>
-                                            <segue destination="KXh-GJ-8yY" kind="show" id="4hp-a6-JSk"/>
+                                            <segue destination="KXh-GJ-8yY" kind="show" identifier="toCreateSetToEdit" id="4hp-a6-JSk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -495,6 +495,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lri-My-ejv">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pJT-JF-WR0" id="NFi-Zv-FLZ"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-Dm-OiX">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
@@ -599,7 +602,7 @@
                     <navigationItem key="navigationItem" title="Home" id="aN4-mZ-qKb">
                         <barButtonItem key="leftBarButtonItem" image="Setting" id="zsF-un-kfd">
                             <connections>
-                                <segue destination="rs5-FP-VNg" kind="show" id="e60-aW-RPK"/>
+                                <segue destination="mym-HS-y57" kind="show" id="c02-wg-VcX"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mE1-fi-iMp">
@@ -609,54 +612,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="lri-My-ejv" id="80F-qK-0EH"/>
                         <outlet property="tableView" destination="Aa4-Dm-OiX" id="ebf-VH-koT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usz-GK-nGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="830" y="-608"/>
-        </scene>
-        <!--Setting-->
-        <scene sceneID="L6S-gK-yEb">
-            <objects>
-                <viewController storyboardIdentifier="SettingViewController" title="Setting" id="rs5-FP-VNg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vmg-fr-XAB"/>
-                        <viewControllerLayoutGuide type="bottom" id="36r-El-DmE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Hf-34-o87">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="cza-xB-KsH">
-                                <rect key="frame" x="-6" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="taz-B7-NJJ">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="taz-B7-NJJ" id="GWE-g8-pJM">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNw-bn-B44">
-                                                    <rect key="frame" x="44" y="11" width="54" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Setting" id="ODH-M8-BIR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aLj-5J-aYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="118" y="176"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oJT-B2-Z3U">
@@ -875,9 +837,11 @@
                         <outlet property="addCardView2" destination="ywi-5a-RvL" id="0S2-5D-Ani"/>
                         <outlet property="scrollView" destination="xHp-Ze-9LP" id="Tz7-ig-lt1"/>
                         <outlet property="titleTextField" destination="rj1-v9-k0N" id="KbL-XV-s4M"/>
+                        <segue destination="B7L-Er-TOH" kind="unwind" identifier="createSetDone" unwindAction="unwindSegue:" id="Ks8-TT-2o8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHh-lO-L0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="B7L-Er-TOH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1515" y="-1108"/>
         </scene>
@@ -898,6 +862,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcU-sI-NoG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="-608"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="SdZ-wm-uxM">
+            <objects>
+                <tableViewController id="mym-HS-y57" customClass="SettingViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="X1D-Jj-jBn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Account" id="wyN-KJ-89t">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Egw-IZ-ELW">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Egw-IZ-ELW" id="JB0-xN-P5K">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-fk-rFH">
+                                                    <rect key="frame" x="31" y="7" width="49" height="30"/>
+                                                    <state key="normal" title="Logout">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logout:" destination="mym-HS-y57" eventType="touchUpInside" id="onO-QG-3Nr"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="mym-HS-y57" id="9F0-l4-9Bb"/>
+                            <outlet property="delegate" destination="mym-HS-y57" id="f1b-BG-Qsg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Setting" id="XVj-vB-7hz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDM-gi-x4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="150"/>
         </scene>
     </scenes>
     <resources>

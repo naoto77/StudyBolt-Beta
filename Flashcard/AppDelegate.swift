@@ -42,15 +42,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        Parse.setApplicationId("qHfjy6kpBVVbVRC2Wne4t3h40iO1AUwZNvybFQBz", clientKey: "bRjnuE2RwhrO5MxCLQImlm5nPyD8vqYfvdl772xg")
-        
         //Register Parse class? Ask why is this neccesary. Also do I have to register "User" too?
         StudySets.registerSubclass()
         Card.registerSubclass()
         
+        Parse.setApplicationId("qHfjy6kpBVVbVRC2Wne4t3h40iO1AUwZNvybFQBz", clientKey: "bRjnuE2RwhrO5MxCLQImlm5nPyD8vqYfvdl772xg")
+        
+        println("JOHNNY!")
+        
         //PFUser.logInWithUsername("test", password: "test")
         
-        println(PFUser.currentUser())
+        //println(PFUser.currentUser())
         
         
         // Initialize Facebook
@@ -96,6 +98,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().translucent = false
         
         
+        //NSNotification with @IBAction func logout in SettingViewContoller
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("application"), name: "UserLoggedOut", object: nil)
+        
         
         // Override point for customization after application launch.
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -104,6 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

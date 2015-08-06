@@ -18,7 +18,13 @@ class CreateSetViewController: UIViewController {
     @IBOutlet var addCardView2: AddCardView! // Right
     
     var cards = [Card()]
+    
     var cardIndex = 0
+    
+    //Reciever of studySet object passed from StudySetViewController
+    var studySet: StudySets?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +32,29 @@ class CreateSetViewController: UIViewController {
         scrollView.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("textFieldDidChange:"), name: UITextFieldTextDidChangeNotification, object: nil)
+        
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if studySet != nil{
+            titleTextField.text = studySet?.title
+            updateTextFields()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        moveToCenter()
+        
         updateLocking()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        moveToCenter()
     }
     
     func textFieldDidChange(notification: NSNotification) {
@@ -43,22 +66,35 @@ class CreateSetViewController: UIViewController {
     }
     
     @IBAction func save(sender: AnyObject!) {
-        // Upload/save study sets
-        let newStudySets = StudySets()
-        newStudySets.user = PFUser.currentUser()
-        newStudySets.title = titleTextField.text
-        newStudySets.numberOfCards = cards.count
-        newStudySets.saveInBackgroundWithBlock { (success, error) -> Void in
+        
+        if studySet != nil{
             // Save all the cards
             for card in self.cards {
-                card.studySets = newStudySets
+                card.studySets = studySet
+                studySet!.numberOfCards = cards.count
                 card.saveInBackgroundWithBlock(nil)
+                studySet?.saveInBackgroundWithBlock(nil)
+            }
+        }
+        else{
+            
+            // Upload/save study sets
+            let newStudySets = StudySets()
+            newStudySets.user = PFUser.currentUser()
+            newStudySets.title = titleTextField.text
+            newStudySets.numberOfCards = cards.count
+            newStudySets.saveInBackgroundWithBlock { (success, error) -> Void in
+                // Save all the cards
+                for card in self.cards {
+                    card.studySets = newStudySets
+                    card.saveInBackgroundWithBlock(nil)
+                }
             }
         }
         
-        
         // Go back to previous VC
-        self.navigationController?.popViewControllerAnimated(true)
+//        self.navigationController?.popViewControllerAnimated(true)
+        performSegueWithIdentifier("createSetDone", sender: nil)
     }
     
     func updateLocking() {
@@ -99,6 +135,41 @@ class CreateSetViewController: UIViewController {
     func moveToCenter() {
         scrollView.contentOffset = CGPoint(x: scrollView.frame.size.width, y: 0)
     }
+    
+    
+    
+    //update textFields
+    func updateTextFields() {
+        
+        // Also needs to update text field content
+        if cardIndex > 0 {
+            addCardView0.termTextField.text = cards[cardIndex - 1].term
+            addCardView0.definitionTextField.text = cards[cardIndex - 1].definition
+            println(cardIndex)
+        }
+        
+        addCardView1.termTextField.text = cards[cardIndex].term
+        addCardView1.definitionTextField.text = cards[cardIndex].definition
+        
+        if cardIndex + 1 < cards.count {
+            addCardView2.termTextField.text = cards[cardIndex + 1].term
+            addCardView2.definitionTextField.text = cards[cardIndex + 1].definition
+            println(cardIndex)
+            
+        } else {
+            addCardView2.termTextField.text = nil
+            addCardView2.definitionTextField.text = nil
+            println(cardIndex)
+        }
+    }
+    
+    
+    //update textFields for edit
+    func updateTextFieldsForEdit(){
+        
+    }
+    
+    
 }
 
 extension CreateSetViewController: UIScrollViewDelegate {
@@ -112,24 +183,13 @@ extension CreateSetViewController: UIScrollViewDelegate {
             }
             moveToCenter()
             
+            
+            
             if cardIndex >= cards.count {
                 cards.append(Card())
             }
             
-            // Also needs to update text field content
-            if cardIndex > 0 {
-                addCardView0.termTextField.text = cards[cardIndex - 1].term
-                addCardView0.definitionTextField.text = cards[cardIndex - 1].definition
-            }
-            addCardView1.termTextField.text = cards[cardIndex].term
-            addCardView1.definitionTextField.text = cards[cardIndex].definition
-            if cardIndex + 1 < cards.count {
-                addCardView2.termTextField.text = cards[cardIndex + 1].term
-                addCardView2.definitionTextField.text = cards[cardIndex + 1].definition
-            } else {
-                addCardView2.termTextField.text = nil
-                addCardView2.definitionTextField.text = nil
-            }
+            updateTextFields()
             
             // Need to update locking
             updateLocking()
@@ -137,6 +197,4 @@ extension CreateSetViewController: UIScrollViewDelegate {
     }
 }
 
-//extension CreateSetViewController: UITextFieldDelegate {
-//
-//}
+
