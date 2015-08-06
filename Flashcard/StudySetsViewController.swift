@@ -76,7 +76,7 @@ class StudySetsViewController: UIViewController {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let removedStudySet = studySetsObjects.removeAtIndex(indexPath.row)
-            removedStudySet.deleteInBackground()
+            removedStudySet.delete()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
@@ -89,6 +89,9 @@ class StudySetsViewController: UIViewController {
         
         //fetch Card class from Parse and sort it by StudySets pointer
         var studySetsQuery = PFQuery(className: StudySets.parseClassName())//StudySets.parseClassName is same as "StudySets"
+        
+        studySetsQuery.whereKey("user", equalTo:PFUser.currentUser()!)
+
         
         //the values are optional so unwrap it by optional binding
         if let studySets = studySetsQuery.findObjects() as? [StudySets] {

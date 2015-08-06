@@ -62,7 +62,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let removedCard = cardsObjects.removeAtIndex(indexPath.row)
-            removedCard.deleteInBackground()
+            removedCard.delete()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
@@ -74,7 +74,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         }
         
         if cardsObjects.count == 0{
-            let removeStudySet = studySet.deleteInBackground()
+            let removeStudySet = studySet.delete()
             // Bring you back to previous VC
             self.navigationController?.popViewControllerAnimated(true)
         }

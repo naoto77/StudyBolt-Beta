@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LrY-kS-JQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808" y="-1326"/>
+            <point key="canvasLocation" x="1620" y="-1326"/>
         </scene>
         <!--Flash Card View Controller-->
         <scene sceneID="sQy-LV-bd7">
@@ -843,7 +843,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHh-lO-L0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="B7L-Er-TOH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1515" y="-1108"/>
+            <point key="canvasLocation" x="2327" y="-1108"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hps-hH-w0n">
+            <objects>
+                <viewController id="xiq-dU-lBc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rYP-Md-Vpl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wsi-SU-9ae"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rz5-1Z-hWv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AFs-F2-T7O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRP-1R-n66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="-1316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Fg-b9-gS8">

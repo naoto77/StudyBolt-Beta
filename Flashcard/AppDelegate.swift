@@ -1,4 +1,4 @@
-//
+
 //  AppDelegate.swift
 //  Flashcard
 //
@@ -46,13 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StudySets.registerSubclass()
         Card.registerSubclass()
         
+        
         Parse.setApplicationId("qHfjy6kpBVVbVRC2Wne4t3h40iO1AUwZNvybFQBz", clientKey: "bRjnuE2RwhrO5MxCLQImlm5nPyD8vqYfvdl772xg")
         
-        println("JOHNNY!")
         
         //PFUser.logInWithUsername("test", password: "test")
         
-        //println(PFUser.currentUser())
+        println(PFUser.currentUser())
         
         
         // Initialize Facebook
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // 4
             // Otherwise set the LoginViewController to be the first
-            let loginViewController = PFLogInViewController()
+            let loginViewController = LogInViewController()
             loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
@@ -98,16 +98,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().translucent = false
         
         
-        //NSNotification with @IBAction func logout in SettingViewContoller
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("application"), name: "UserLoggedOut", object: nil)
+        
+        //NSNotification with func logout in setting
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userLoggedOut"), name: "UserLoggedOut", object: nil)
         
         
         // Override point for customization after application launch.
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
+    }
+    
+    func userLoggedOut() {
         
+        let loginViewController = LogInViewController()
+        loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+        loginViewController.delegate = parseLoginHelper
+        loginViewController.signUpController?.delegate = parseLoginHelper
         
+        window?.rootViewController = loginViewController
     }
     
 

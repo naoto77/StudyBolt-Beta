@@ -69,12 +69,13 @@ class CreateSetViewController: UIViewController {
         
         if studySet != nil{
             // Save all the cards
+            studySet!.numberOfCards = cards.count
+            studySet?.saveInBackgroundWithBlock(nil)
             for card in self.cards {
                 card.studySets = studySet
-                studySet!.numberOfCards = cards.count
                 card.saveInBackgroundWithBlock(nil)
-                studySet?.saveInBackgroundWithBlock(nil)
             }
+            self.performSegueWithIdentifier("createSetDone", sender: nil)
         }
         else{
             
@@ -89,12 +90,13 @@ class CreateSetViewController: UIViewController {
                     card.studySets = newStudySets
                     card.saveInBackgroundWithBlock(nil)
                 }
+                self.performSegueWithIdentifier("createSetDone", sender: nil)
             }
         }
         
         // Go back to previous VC
 //        self.navigationController?.popViewControllerAnimated(true)
-        performSegueWithIdentifier("createSetDone", sender: nil)
+//        performSegueWithIdentifier("createSetDone", sender: nil)
     }
     
     func updateLocking() {

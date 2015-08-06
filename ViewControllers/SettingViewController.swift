@@ -18,7 +18,7 @@ class SettingViewController: UITableViewController, PFLogInViewControllerDelegat
         var currentUser = PFUser.currentUser()
         if currentUser == nil {}
         
-        ////NSNotification with func application in appDelegate
+        //NSNotification with func application in appDelegate
         NSNotificationCenter.defaultCenter().postNotificationName("UserLoggedOut", object: nil)
     }
     
