@@ -201,7 +201,10 @@
                                                     <outlet property="termInFlashCard" destination="woW-6e-F5l" id="RsR-cF-YhL"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="Flash Card View2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-kW-iXz">
+                                                <rect key="frame" x="780" y="836" width="240" height="128"/>
+                                            </scrollView>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="Flash Card View2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                 <rect key="frame" x="600" y="1200" width="600" height="600"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
@@ -279,12 +282,15 @@
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="9xI-nR-ziO" secondAttribute="bottom" id="0kN-xy-ukV"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="width" secondItem="woW-6e-F5l" secondAttribute="width" id="3Je-CN-3nl"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="h77-O3-xzM" secondAttribute="trailing" id="4BO-aQ-3G7"/>
+                                            <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="0Rr-kW-iXz" secondAttribute="bottom" constant="236" id="B1h-yl-3xr"/>
                                             <constraint firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="HCY-Cg-i6Y"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="HWJ-ao-AHW" secondAttribute="top" id="Lt4-EY-cs8"/>
                                             <constraint firstAttribute="trailing" secondItem="XW0-hY-bkJ" secondAttribute="trailing" id="M0Q-jd-dUh"/>
                                             <constraint firstAttribute="trailing" secondItem="HWJ-ao-AHW" secondAttribute="trailing" id="N9y-RM-BzB"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="height" secondItem="XW0-hY-bkJ" secondAttribute="height" id="NOT-79-xfa"/>
+                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="height" secondItem="XW0-hY-bkJ" secondAttribute="height" id="OeU-2Q-y8A"/>
                                             <constraint firstItem="XW0-hY-bkJ" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="RTk-R6-IV8"/>
+                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="Sjg-6R-Iq7"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="cDD-T6-YAs" secondAttribute="leading" id="Wbr-Iu-fek"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="bWo-pL-Qic"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="XW0-hY-bkJ" secondAttribute="bottom" id="eej-GY-iFU"/>
@@ -292,6 +298,7 @@
                                             <constraint firstAttribute="bottom" secondItem="cDD-T6-YAs" secondAttribute="bottom" id="lWS-aY-dbl"/>
                                             <constraint firstItem="XW0-hY-bkJ" firstAttribute="top" secondItem="0Iq-Zo-GaW" secondAttribute="top" id="lX8-Y1-rd1"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="trailing" secondItem="HWJ-ao-AHW" secondAttribute="leading" id="nCe-i6-gOt"/>
+                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="top" secondItem="XW0-hY-bkJ" secondAttribute="bottom" constant="236" id="pd1-4n-Wxu"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="height" secondItem="9xI-nR-ziO" secondAttribute="height" id="t2a-M6-Gjo"/>
                                             <constraint firstItem="h77-O3-xzM" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="uhX-7x-uiK"/>
                                             <constraint firstAttribute="trailing" secondItem="cDD-T6-YAs" secondAttribute="trailing" id="uho-B1-apo"/>
