@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import Parse
+import ParseUI
+
+
+class SignUpViewController : PFSignUpViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = StyleConstants.pastelPurple
+        let logoView = UIImageView(image: UIImage(named:"Logo"))
+        
+        self.signUpView!.logo = logoView
+    }
+}

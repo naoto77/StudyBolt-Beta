@@ -123,9 +123,7 @@
                             <constraint firstAttribute="centerX" secondItem="DUG-t9-XKB" secondAttribute="centerX" id="vKs-GQ-Rer"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Study" id="yZs-w3-uFo">
-                        <barButtonItem key="rightBarButtonItem" title="share" id="A0J-v6-o9H"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Study" id="yZs-w3-uFo"/>
                     <connections>
                         <outlet property="numberOfCards" destination="q3s-gy-O7X" id="K4Q-Qh-DRr"/>
                         <outlet property="studyButton" destination="DUG-t9-XKB" id="cQV-uP-uuH"/>
@@ -201,10 +199,10 @@
                                                     <outlet property="termInFlashCard" destination="woW-6e-F5l" id="RsR-cF-YhL"/>
                                                 </connections>
                                             </view>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-kW-iXz">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-kW-iXz">
                                                 <rect key="frame" x="780" y="836" width="240" height="128"/>
                                             </scrollView>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="Flash Card View2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="Flash Card View2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                 <rect key="frame" x="600" y="1200" width="600" height="600"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
@@ -282,7 +280,8 @@
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="9xI-nR-ziO" secondAttribute="bottom" id="0kN-xy-ukV"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="width" secondItem="woW-6e-F5l" secondAttribute="width" id="3Je-CN-3nl"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="leading" secondItem="h77-O3-xzM" secondAttribute="trailing" id="4BO-aQ-3G7"/>
-                                            <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="0Rr-kW-iXz" secondAttribute="bottom" constant="236" id="B1h-yl-3xr"/>
+                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="leading" secondItem="h77-O3-xzM" secondAttribute="trailing" id="68V-Zk-kJB"/>
+                                            <constraint firstItem="cDD-T6-YAs" firstAttribute="top" secondItem="0Rr-kW-iXz" secondAttribute="bottom" id="B1h-yl-3xr"/>
                                             <constraint firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="HCY-Cg-i6Y"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="top" secondItem="HWJ-ao-AHW" secondAttribute="top" id="Lt4-EY-cs8"/>
                                             <constraint firstAttribute="trailing" secondItem="XW0-hY-bkJ" secondAttribute="trailing" id="M0Q-jd-dUh"/>
@@ -298,10 +297,11 @@
                                             <constraint firstAttribute="bottom" secondItem="cDD-T6-YAs" secondAttribute="bottom" id="lWS-aY-dbl"/>
                                             <constraint firstItem="XW0-hY-bkJ" firstAttribute="top" secondItem="0Iq-Zo-GaW" secondAttribute="top" id="lX8-Y1-rd1"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="trailing" secondItem="HWJ-ao-AHW" secondAttribute="leading" id="nCe-i6-gOt"/>
-                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="top" secondItem="XW0-hY-bkJ" secondAttribute="bottom" constant="236" id="pd1-4n-Wxu"/>
+                                            <constraint firstItem="0Rr-kW-iXz" firstAttribute="top" secondItem="XW0-hY-bkJ" secondAttribute="bottom" id="pd1-4n-Wxu"/>
                                             <constraint firstItem="cDD-T6-YAs" firstAttribute="height" secondItem="9xI-nR-ziO" secondAttribute="height" id="t2a-M6-Gjo"/>
                                             <constraint firstItem="h77-O3-xzM" firstAttribute="leading" secondItem="0Iq-Zo-GaW" secondAttribute="leading" id="uhX-7x-uiK"/>
                                             <constraint firstAttribute="trailing" secondItem="cDD-T6-YAs" secondAttribute="trailing" id="uho-B1-apo"/>
+                                            <constraint firstItem="HWJ-ao-AHW" firstAttribute="leading" secondItem="0Rr-kW-iXz" secondAttribute="trailing" id="wqW-Oy-0Mh"/>
                                             <constraint firstItem="9xI-nR-ziO" firstAttribute="width" secondItem="XW0-hY-bkJ" secondAttribute="width" id="x7q-LI-G4j"/>
                                         </constraints>
                                         <variation key="default">
@@ -499,15 +499,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lri-My-ejv">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="pJT-JF-WR0" id="NFi-Zv-FLZ"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Aa4-Dm-OiX">
-                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudySetsCell" rowHeight="89" id="RGm-sV-aWe" customClass="StudySetsCell" customModule="Flashcard" customModuleProvider="target">
@@ -597,13 +590,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lri-My-ejv" firstAttribute="leading" secondItem="JYR-Y7-RsW" secondAttribute="leading" id="5Lk-3t-xaT"/>
                             <constraint firstItem="Aa4-Dm-OiX" firstAttribute="leading" secondItem="JYR-Y7-RsW" secondAttribute="leading" id="CFr-nR-aaX"/>
-                            <constraint firstAttribute="trailing" secondItem="lri-My-ejv" secondAttribute="trailing" id="Cl2-pZ-1q3"/>
-                            <constraint firstItem="lri-My-ejv" firstAttribute="top" secondItem="rXY-mG-bjD" secondAttribute="bottom" id="DBc-nX-wzS"/>
-                            <constraint firstItem="Aa4-Dm-OiX" firstAttribute="top" secondItem="lri-My-ejv" secondAttribute="bottom" id="G8O-xw-nyQ"/>
                             <constraint firstAttribute="trailing" secondItem="Aa4-Dm-OiX" secondAttribute="trailing" id="OPq-ZU-rEk"/>
                             <constraint firstItem="LXu-EZ-qgX" firstAttribute="top" secondItem="Aa4-Dm-OiX" secondAttribute="bottom" id="TSN-5L-YTY"/>
+                            <constraint firstItem="Aa4-Dm-OiX" firstAttribute="top" secondItem="rXY-mG-bjD" secondAttribute="bottom" id="duh-fp-7eC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="aN4-mZ-qKb">
@@ -619,7 +609,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="lri-My-ejv" id="80F-qK-0EH"/>
                         <outlet property="tableView" destination="Aa4-Dm-OiX" id="ebf-VH-koT"/>
                     </connections>
                 </viewController>

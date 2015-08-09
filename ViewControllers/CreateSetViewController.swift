@@ -69,6 +69,7 @@ class CreateSetViewController: UIViewController {
         
         if studySet != nil{
             // Save all the cards
+            studySet?.title = titleTextField.text
             studySet!.numberOfCards = cards.count
             studySet?.saveInBackgroundWithBlock(nil)
             for card in self.cards {
@@ -78,6 +79,7 @@ class CreateSetViewController: UIViewController {
             self.performSegueWithIdentifier("createSetDone", sender: nil)
         }
         else{
+            
             
             // Upload/save study sets
             let newStudySets = StudySets()

@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let NavBarController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
                 // 3
-                self.window?.rootViewController!.presentViewController(NavBarController, animated:true, completion:nil)
-            }
+//                self.window?.rootViewController!.presentViewController(NavBarController, animated:true, completion:nil)
+                self.window?.rootViewController = NavBarController            }
         }
     }
     
@@ -102,6 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //NSNotification with func logout in setting
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userLoggedOut"), name: "UserLoggedOut", object: nil)
         
+        //Set UIStatusBar color white
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         // Override point for customization after application launch.
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

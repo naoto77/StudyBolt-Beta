@@ -30,6 +30,7 @@
 		5CCA21A31B59F2E500CCD4F4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CCA21A21B59F2E500CCD4F4 /* Images.xcassets */; };
 		5CCA21A61B59F2E500CCD4F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCA21A41B59F2E500CCD4F4 /* LaunchScreen.xib */; };
 		5CCA21B21B59F2E500CCD4F4 /* FlashcardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA21B11B59F2E500CCD4F4 /* FlashcardTests.swift */; };
+		5CCA23491B7447DF00BA29AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */; };
 		5CD683EA1B5D9AD0002D7119 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD683E91B5D9AD0002D7119 /* ParseHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		5CCA21AB1B59F2E500CCD4F4 /* FlashcardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCA21B01B59F2E500CCD4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CCA21B11B59F2E500CCD4F4 /* FlashcardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardTests.swift; sourceTree = "<group>"; };
+		5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5CD683E91B5D9AD0002D7119 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		79921EA33DC307230EF347D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8C81986050B64814CFAE9209 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				5CA1472A1B6AA9B000E026D9 /* FlashCardViewController.swift */,
 				5C07E4201B719BCC0037B59A /* SettingViewController.swift */,
 				5C07E4221B73F4D10037B59A /* LoginViewController.swift */,
+				5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = SOURCE_ROOT;
@@ -380,6 +383,7 @@
 			files = (
 				5CC9B83B1B66C8D40084B9FA /* StudySetViewController.swift in Sources */,
 				5C07E41F1B70529A0037B59A /* StyleConstants.swift in Sources */,
+				5CCA23491B7447DF00BA29AF /* SignUpViewController.swift in Sources */,
 				5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */,
 				5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */,
 				5C07E4231B73F4D10037B59A /* LoginViewController.swift in Sources */,
@@ -531,6 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

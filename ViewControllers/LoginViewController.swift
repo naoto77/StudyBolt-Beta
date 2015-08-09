@@ -15,8 +15,9 @@ class LogInViewController : PFLogInViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = StyleConstants.pastelPurple
-        let logoView = UIImageView(image: UIImage(named:"FlashcardLogo2.png"))
+        self.signUpController?.signUpView?.backgroundColor = StyleConstants.pastelPurple
         
-        self.logInView!.logo = logoView
+        self.logInView!.logo = UIImageView(image: UIImage(named:"Logo"))
+        self.signUpController?.signUpView?.logo = UIImageView(image: UIImage(named:"Logo"))
     }
 }

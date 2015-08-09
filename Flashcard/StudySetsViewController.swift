@@ -166,7 +166,7 @@ extension StudySetsViewController: UITableViewDataSource {
         
         let titleString = studySetsObjects[indexPath.row].title
         println(titleString)
-        println(searchBar.text)
+//        println(searchBar.text)
         
         let numberOfcardsString = studySetsObjects[indexPath.row].numberOfCards as! Int
         var updateDate = ""
