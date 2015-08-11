@@ -23,6 +23,8 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var flashCardView2: FlashCardView!
     @IBOutlet weak var flashCardViewL: FlashCardView!
     @IBOutlet weak var flashCardViewR: FlashCardView!
+   
+    
     
     
     //Instantiate card class in Models as an array to access to Card class on Parse
