@@ -17,15 +17,16 @@ class StudySetsViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     //declare an array to "store studySetsObjects" as a class property
-    var studySetsObjects = [StudySets()]
+    var studySetsObjects = [StudySets]()
     
-    var searchResult = [StudySets()]
+    var searchResult = [StudySets]()
+    
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -33,6 +34,7 @@ class StudySetsViewController: UIViewController {
         
         // Refresh or Pull Data from Parse
         populateData()
+        
     }
     
     
@@ -47,10 +49,6 @@ class StudySetsViewController: UIViewController {
     }
     
     
-    
-    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
-        
-    }
 
     //pass values from StudySets to StudySet
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -103,6 +101,47 @@ class StudySetsViewController: UIViewController {
         
         
     }
+    
+    
+    func searchStudySets(){
+        var findStudySets = PFQuery(className: StudySets.parseClassName())
+        findStudySets.whereKey("title", equalTo: searchBar.text)
+        
+        if let searchResult = findStudySets.findObjects() as? [StudySets]{
+            studySetsObjects = searchResult
+            
+            //Reload tableView
+            self.tableView.reloadData()
+            
+        }
+    }
+    
+    
+//    func loadUser () {
+//        
+//        
+//        var findUser:PFQuery = PFUser.query()
+//        findUser.whereKey("username", equalTo: searchText.text)
+//        
+//        
+//        findUser.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
+//            if !(error != nil) {
+//                // The find succeeded.
+//                println("succesfull load Users")
+//                // Do something with the found objects
+//                for object  in objects  {
+//                    self.userList.addObject(object)
+//                    println("users added to userlist")
+//                }
+//                self.tableView.reloadData()
+//            } else {
+//                // Log details of the failure
+//                println("error loadind user ")
+//                println("error")
+//            }
+//            
+//        }
+//    }
     
     
     //Search function

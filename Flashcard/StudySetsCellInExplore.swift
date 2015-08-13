@@ -6,4 +6,12 @@
 //  Copyright (c) 2015 Naoto. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+
+class StudySetsCellInExplore: UITableViewCell {
+    @IBOutlet var titleLabelInExplore: UILabel!
+    @IBOutlet var cardsLabelInExplore: UILabel!
+    @IBOutlet var updateDateLabelInExplore: UILabel!
+    
+}

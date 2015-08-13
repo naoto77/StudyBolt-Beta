@@ -31,6 +31,9 @@
 		5CCA21A61B59F2E500CCD4F4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCA21A41B59F2E500CCD4F4 /* LaunchScreen.xib */; };
 		5CCA21B21B59F2E500CCD4F4 /* FlashcardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA21B11B59F2E500CCD4F4 /* FlashcardTests.swift */; };
 		5CCA23491B7447DF00BA29AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */; };
+		5CCA234B1B7A9EF700BA29AF /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA234A1B7A9EF700BA29AF /* ExploreViewController.swift */; };
+		5CCA234D1B7B1F6600BA29AF /* StudySetsCellInExplore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA234C1B7B1F6600BA29AF /* StudySetsCellInExplore.swift */; };
+		5CCA234F1B7C34B500BA29AF /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA234E1B7C34B500BA29AF /* ImportViewController.swift */; };
 		5CD683EA1B5D9AD0002D7119 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD683E91B5D9AD0002D7119 /* ParseHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		5CCA21B01B59F2E500CCD4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CCA21B11B59F2E500CCD4F4 /* FlashcardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardTests.swift; sourceTree = "<group>"; };
 		5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5CCA234A1B7A9EF700BA29AF /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		5CCA234C1B7B1F6600BA29AF /* StudySetsCellInExplore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudySetsCellInExplore.swift; sourceTree = "<group>"; };
+		5CCA234E1B7C34B500BA29AF /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		5CD683E91B5D9AD0002D7119 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		79921EA33DC307230EF347D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8C81986050B64814CFAE9209 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 				5C07E4201B719BCC0037B59A /* SettingViewController.swift */,
 				5C07E4221B73F4D10037B59A /* LoginViewController.swift */,
 				5CCA23481B7447DF00BA29AF /* SignUpViewController.swift */,
+				5CCA234A1B7A9EF700BA29AF /* ExploreViewController.swift */,
+				5CCA234E1B7C34B500BA29AF /* ImportViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = SOURCE_ROOT;
@@ -178,6 +186,7 @@
 				5CCA219B1B59F2E500CCD4F4 /* AppDelegate.swift */,
 				5C9640B31B5F646000E70815 /* ExampleForProgramaticalPlacement.swift */,
 				5C9640B11B5EFE3800E70815 /* StudySetsCell.swift */,
+				5CCA234C1B7B1F6600BA29AF /* StudySetsCellInExplore.swift */,
 				5CC9B83E1B66E7580084B9FA /* StudySetCell.swift */,
 				5CCA219F1B59F2E500CCD4F4 /* Main.storyboard */,
 				5CCA21A21B59F2E500CCD4F4 /* Images.xcassets */,
@@ -386,13 +395,16 @@
 				5CCA23491B7447DF00BA29AF /* SignUpViewController.swift in Sources */,
 				5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */,
 				5CCA219E1B59F2E500CCD4F4 /* StudySetsViewController.swift in Sources */,
+				5CCA234B1B7A9EF700BA29AF /* ExploreViewController.swift in Sources */,
 				5C07E4231B73F4D10037B59A /* LoginViewController.swift in Sources */,
 				5CCA219C1B59F2E500CCD4F4 /* AppDelegate.swift in Sources */,
 				5C07E4211B719BCC0037B59A /* SettingViewController.swift in Sources */,
+				5CCA234F1B7C34B500BA29AF /* ImportViewController.swift in Sources */,
 				5CC9B8351B62F27F0084B9FA /* AddCardView.swift in Sources */,
 				5C9640B21B5EFE3800E70815 /* StudySetsCell.swift in Sources */,
 				5C9640B71B6160E400E70815 /* CreateSetViewController.swift in Sources */,
 				5CD683EA1B5D9AD0002D7119 /* ParseHelper.swift in Sources */,
+				5CCA234D1B7B1F6600BA29AF /* StudySetsCellInExplore.swift in Sources */,
 				5C9640BC1B6211DF00E70815 /* Account.swift in Sources */,
 				5CA1472B1B6AA9B000E026D9 /* FlashCardViewController.swift in Sources */,
 				5CA1472D1B6AE22600E026D9 /* FlashCardView.swift in Sources */,

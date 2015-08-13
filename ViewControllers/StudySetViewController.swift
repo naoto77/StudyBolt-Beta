@@ -23,6 +23,11 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     //declare an array to "store cardObjects" as a class property
     var cardsObjects = [Card]()
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        hidesBottomBarWhenPushed = true
+    }
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -30,6 +35,8 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         //set dataSource
         tableView.dataSource = self
         
+        //This code stop tableView to be displayed in wierd way
+        tabBarController?.tabBar.hidden = true
     }
     
     

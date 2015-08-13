@@ -15,7 +15,9 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     //IBOutlet for scrollView and container view(view which contains 3 views)
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var centerScrollView: UIScrollView!
     
+    @IBOutlet weak var centerView: UIView!
     
     //IBOutlet for 3 flashCrad views
     @IBOutlet weak var flashCardView0: FlashCardView!
@@ -151,7 +153,8 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     //methods controlling placements of views in scroll view
     func moveToCenter() {
         //Why should I set frameSizeHeight to contentOffset's y?
-        scrollView.contentOffset = CGPoint(x: scrollView.frame.size.width, y: scrollView.frame.size.height)
+        scrollView.contentOffset = CGPoint(x: 0, y: scrollView.frame.size.height)
+        centerScrollView.contentOffset = CGPoint(x: centerScrollView.frame.size.width, y: 0)
     }
     
     func lockScrollView() {
@@ -172,7 +175,6 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     func unlockScrollView() {
         scrollView.contentInset = UIEdgeInsetsZero
     }
-
     
 }
 

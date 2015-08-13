@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // if login was successful, display the NavBarController
                 // 2
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let NavBarController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+                let NavBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
                 // 3
 //                self.window?.rootViewController!.presentViewController(NavBarController, animated:true, completion:nil)
                 self.window?.rootViewController = NavBarController            }
@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 3
             // if we have a user, set the NavBarController to be the initial View Controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
         } else {
             // 4
             // Otherwise set the LoginViewController to be the first
