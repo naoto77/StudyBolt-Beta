@@ -20,13 +20,36 @@ class StudySetsViewController: UIViewController {
     var studySetsObjects = [StudySets]()
     
     var searchResult = [StudySets]()
+    var searchText = ""
     
     
+    //For search bar
+    enum State {
+        case DefaultMode
+        case SearchMode
+    }
+    
+    var state: State = .DefaultMode {
+        didSet {
+            switch (state){
+            case .DefaultMode:
+                searchBar.resignFirstResponder()
+                searchBar.showsCancelButton = false
+            
+            case .SearchMode:
+            let searchText = searchBar.text ?? ""
+            searchBar.setShowsCancelButton(true, animated: true)
+
+            }
+        }
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,6 +58,7 @@ class StudySetsViewController: UIViewController {
         // Refresh or Pull Data from Parse
         populateData()
         
+        state = .DefaultMode
     }
     
     
@@ -47,6 +71,8 @@ class StudySetsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
 
@@ -103,9 +129,11 @@ class StudySetsViewController: UIViewController {
     }
     
     
+    //search query
     func searchStudySets(){
         var findStudySets = PFQuery(className: StudySets.parseClassName())
-        findStudySets.whereKey("title", equalTo: searchBar.text)
+        findStudySets.whereKey("user", equalTo: PFUser.currentUser()!)
+        findStudySets.whereKey("title", containsString: searchBar.text)
         
         if let searchResult = findStudySets.findObjects() as? [StudySets]{
             studySetsObjects = searchResult
@@ -115,78 +143,6 @@ class StudySetsViewController: UIViewController {
             
         }
     }
-    
-    
-//    func loadUser () {
-//        
-//        
-//        var findUser:PFQuery = PFUser.query()
-//        findUser.whereKey("username", equalTo: searchText.text)
-//        
-//        
-//        findUser.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
-//            if !(error != nil) {
-//                // The find succeeded.
-//                println("succesfull load Users")
-//                // Do something with the found objects
-//                for object  in objects  {
-//                    self.userList.addObject(object)
-//                    println("users added to userlist")
-//                }
-//                self.tableView.reloadData()
-//            } else {
-//                // Log details of the failure
-//                println("error loadind user ")
-//                println("error")
-//            }
-//            
-//        }
-//    }
-    
-    
-    //Search function
-//    func searchStudyset(searchText: String) -> StudySets{
-//        let studySetQuery = PFQuery(className: StudySets.parseClassName())
-//        
-//        studySetQuery.whereKey("studySets", equalTo: searchText)
-//        
-//        if let studySet = studySetQuery.findObjects() as? [StudySets]{
-//            searchResult = studySet
-//        }
-//        
-//        return searchResult as? [StudySets]
-//    }
-//    
-//    
-//    var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
-//    
-//    //Sort query by studySet pointer
-//    cardsQuery.whereKey("studySets", equalTo: studySet)
-//    
-//    //The values are optional so unwrap it by optional binding
-//    if let cards = cardsQuery.findObjects() as? [Card] {
-//        cardsObjects = cards
-//    }
-//    func searchUsers(searchText: String, completionBlock: PFArrayResultBlock)
-//        -> PFQuery {
-//            /*
-//            NOTE: We are using a Regex to allow for a case insensitive compare of usernames.
-//            Regex can be slow on large datasets. For large amount of data it's better to store
-//            lowercased username in a separate column and perform a regular string compare.
-//            */
-//            let query = PFUser.query()!.whereKey(ParseHelper.ParseUserUsername,
-//                matchesRegex: searchText, modifiers: "i")
-//            
-//            query.whereKey(ParseHelper.ParseUserUsername,
-//                notEqualTo: PFUser.currentUser()!.username!)
-//            
-//            query.orderByAscending(ParseHelper.ParseUserUsername)
-//            query.limit = 20
-//            
-//            query.findObjectsInBackgroundWithBlock(completionBlock)
-//            
-//            return query
-//    }
     
 }
 
@@ -225,6 +181,29 @@ extension StudySetsViewController: UITableViewDataSource {
         
         
         return cell
+    }
+    
+}
+
+
+//for search bar
+extension StudySetsViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        state = .SearchMode
+        if searchBar.text .isEmpty{
+            populateData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        state = .DefaultMode
+        populateData()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchStudySets()
+        //notes = searchStudySets(searchText)
     }
     
 }

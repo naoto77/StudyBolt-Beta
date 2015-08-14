@@ -13,7 +13,35 @@ class ExploreViewController: UIViewController{
     
     @IBOutlet weak var tableViewInExplore: UITableView!
     
+    @IBOutlet weak var searchBarInExplore: UISearchBar!
+    
+    
     var studySetsObjects = [StudySets]()
+    
+    var searchResult = [StudySets]()
+    var searchText = ""
+    
+    
+    //For search bar
+    enum State {
+        case DefaultMode
+        case SearchMode
+    }
+    
+    var state: State = .DefaultMode {
+        didSet {
+            switch (state){
+            case .DefaultMode:
+                searchBarInExplore.resignFirstResponder()
+                searchBarInExplore.showsCancelButton = false
+                
+            case .SearchMode:
+                let searchText = searchBarInExplore.text ?? ""
+                searchBarInExplore.setShowsCancelButton(true, animated: true)
+                
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -23,6 +51,9 @@ class ExploreViewController: UIViewController{
         tableViewInExplore.delegate = self
         tableViewInExplore.dataSource = self
         
+        //for search
+        searchBarInExplore.delegate = self
+        
         
     }
     
@@ -31,6 +62,9 @@ class ExploreViewController: UIViewController{
         
         // Refresh or Pull Data from Parse
         populateData()
+        
+        //for search bar
+        state = .DefaultMode
     }
     
     
@@ -61,6 +95,43 @@ class ExploreViewController: UIViewController{
         
         
     }
+    
+    
+    //search query
+    func searchStudySetsForExplore(){
+        var findStudySets = PFQuery(className: StudySets.parseClassName())
+        findStudySets.whereKey("title", containsString: searchBarInExplore.text)
+        
+        if let searchResult = findStudySets.findObjects() as? [StudySets]{
+            studySetsObjects = searchResult
+            
+            //Reload tableView
+            self.tableViewInExplore.reloadData()
+            
+        }
+    }
+    
+    
+    //pass values from Explore to Import
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "toImport"){
+            var studySetView: ImportViewController = segue.destinationViewController as! ImportViewController
+            
+            let indexPath = tableViewInExplore.indexPathForSelectedRow()
+            let object = studySetsObjects[indexPath!.row]
+            studySetView.studySetInImport = object
+            
+            var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
+            cardsQuery.whereKey("studySets", equalTo: object)
+            //the values are optional so unwrap it by optional binding
+            if let cards = cardsQuery.findObjects() as? [Card] {
+                studySetView.cardsObjects = cards
+            }
+            
+        }
+        
+    }
+
     
 }
 
@@ -98,6 +169,29 @@ extension ExploreViewController: UITableViewDataSource, UITableViewDelegate {
         
         
         return cell
+    }
+    
+}
+
+
+//for search bar
+extension ExploreViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        state = .SearchMode
+        if searchBar.text .isEmpty{
+            populateData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        state = .DefaultMode
+        populateData()
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        searchStudySetsForExplore()
+        //notes = searchStudySets(searchText)
     }
     
 }

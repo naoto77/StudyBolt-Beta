@@ -97,19 +97,49 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-dw-Bs8">
+                                <rect key="frame" x="27" y="269" width="59" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cards" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y11-Fb-M23">
+                                <rect key="frame" x="94" y="269" width="43" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YlL-zd-xSg" firstAttribute="top" secondItem="2LN-q1-Rkw" secondAttribute="bottom" constant="28" id="ObI-gJ-K0Q"/>
                             <constraint firstItem="Cgd-2z-iDS" firstAttribute="top" secondItem="bZ7-sZ-8jG" secondAttribute="bottom" id="PcH-Qc-skS"/>
+                            <constraint firstItem="Y11-Fb-M23" firstAttribute="leading" secondItem="gYP-dw-Bs8" secondAttribute="trailing" constant="8" id="Pwc-Mq-bcm"/>
                             <constraint firstAttribute="centerX" secondItem="YlL-zd-xSg" secondAttribute="centerX" id="RZI-Ie-TXD"/>
                             <constraint firstAttribute="centerX" secondItem="2LN-q1-Rkw" secondAttribute="centerX" id="U7h-F3-uXv"/>
+                            <constraint firstItem="Y11-Fb-M23" firstAttribute="top" secondItem="4ID-ye-iIr" secondAttribute="bottom" constant="205" id="VUO-lC-SRG"/>
                             <constraint firstItem="2LN-q1-Rkw" firstAttribute="top" secondItem="4ID-ye-iIr" secondAttribute="bottom" constant="29" id="XXp-Dt-uOE"/>
+                            <constraint firstItem="gYP-dw-Bs8" firstAttribute="top" secondItem="iYF-on-zy7" secondAttribute="topMargin" constant="205" id="YEq-Ku-Jec"/>
+                            <constraint firstItem="gYP-dw-Bs8" firstAttribute="leading" secondItem="iYF-on-zy7" secondAttribute="leading" constant="27" id="cUl-jU-PVA"/>
                             <constraint firstItem="bZ7-sZ-8jG" firstAttribute="leading" secondItem="iYF-on-zy7" secondAttribute="leading" id="jUb-ND-vin"/>
+                            <constraint firstItem="gYP-dw-Bs8" firstAttribute="top" secondItem="YlL-zd-xSg" secondAttribute="bottom" constant="205" id="mK7-CZ-Nq2"/>
+                            <constraint firstItem="gYP-dw-Bs8" firstAttribute="top" secondItem="4ID-ye-iIr" secondAttribute="bottom" constant="205" id="xB2-Ie-yhZ"/>
                             <constraint firstAttribute="trailing" secondItem="bZ7-sZ-8jG" secondAttribute="trailing" id="xtk-NH-lvt"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YEq-Ku-Jec"/>
+                                <exclude reference="mK7-CZ-Nq2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Study Set" id="GWE-GS-61j"/>
+                    <connections>
+                        <outlet property="importButton" destination="YlL-zd-xSg" id="vsT-hN-L19"/>
+                        <outlet property="numberOfCardsInImport" destination="gYP-dw-Bs8" id="7eH-ad-Lsn"/>
+                        <outlet property="tableViewInImport" destination="bZ7-sZ-8jG" id="uWv-xv-Jvh"/>
+                        <outlet property="titleInImport" destination="2LN-q1-Rkw" id="NCn-ZV-ZiS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9s-W9-kh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1065,7 +1095,7 @@
                                             <outlet property="cardsLabelInExplore" destination="dP7-UF-6VL" id="sgt-dA-pDm"/>
                                             <outlet property="titleLabelInExplore" destination="HA0-Ml-m6S" id="oLV-Bu-MEJ"/>
                                             <outlet property="updateDateLabelInExplore" destination="Wca-G0-zO6" id="BZ8-BQ-AbU"/>
-                                            <segue destination="WIX-ra-J0v" kind="show" id="wPF-2d-Vyj"/>
+                                            <segue destination="WIX-ra-J0v" kind="show" identifier="toImport" id="wPF-2d-Vyj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1085,6 +1115,7 @@
                     <tabBarItem key="tabBarItem" title="Explore" image="Explore" id="XgF-Ud-6HP"/>
                     <navigationItem key="navigationItem" title="Explore" id="nKR-ay-VWt"/>
                     <connections>
+                        <outlet property="searchBarInExplore" destination="jp2-Jv-vLF" id="j1f-op-06z"/>
                         <outlet property="tableViewInExplore" destination="VQR-PN-zGA" id="59L-qe-fBE"/>
                     </connections>
                 </viewController>
