@@ -74,8 +74,13 @@ class StudySetsViewController: UIViewController {
     
     
     
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        if segue.identifier == "createSetDone" {
+            populateData()
+        }
+    }
     
-
+    
     //pass values from StudySets to StudySet
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toStudy"){
@@ -133,8 +138,8 @@ class StudySetsViewController: UIViewController {
     func searchStudySets(){
         var findStudySets = PFQuery(className: StudySets.parseClassName())
         findStudySets.whereKey("user", equalTo: PFUser.currentUser()!)
-        findStudySets.whereKey("title", containsString: searchBar.text)
-        
+        //findStudySets.whereKey("title", containsString: searchBar.text)
+        findStudySets.whereKey("title", matchesRegex: searchBar.text, modifiers: "i")
         if let searchResult = findStudySets.findObjects() as? [StudySets]{
             studySetsObjects = searchResult
             

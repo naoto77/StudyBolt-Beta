@@ -20,6 +20,38 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var numberOfCardsInImport: UILabel!
     @IBOutlet weak var importButton: UIButton!
     
+    @IBAction func importStudySet (sender: AnyObject) {
+        
+        // Variables
+        var copyOfAStudySet = StudySets()
+        
+        copyOfAStudySet.user = PFUser.currentUser()
+        copyOfAStudySet.title = studySetInImport.title
+        copyOfAStudySet.numberOfCards = studySetInImport.numberOfCards
+        copyOfAStudySet.saveInBackground()
+        
+        println(cardsObjects)
+        
+        var copyOfCards = [Card]()
+        
+        for(var i = 0; i < cardsObjects.count; i++){
+            
+            copyOfCards.append(Card())
+            
+            
+            copyOfCards[i].term = cardsObjects[i].term
+            copyOfCards[i].definition = cardsObjects[i].definition
+            copyOfCards[i].studySets = copyOfAStudySet
+            copyOfCards[i].saveInBackground()
+            
+            println(copyOfCards[i].term)
+            
+        }
+    }
+    
+    
+   
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -100,7 +100,8 @@ class ExploreViewController: UIViewController{
     //search query
     func searchStudySetsForExplore(){
         var findStudySets = PFQuery(className: StudySets.parseClassName())
-        findStudySets.whereKey("title", containsString: searchBarInExplore.text)
+        //findStudySets.whereKey("title", containsString: searchBarInExplore.text)
+        findStudySets.whereKey("title", matchesRegex: searchBarInExplore.text, modifiers: "i")
         
         if let searchResult = findStudySets.findObjects() as? [StudySets]{
             studySetsObjects = searchResult
@@ -131,7 +132,13 @@ class ExploreViewController: UIViewController{
         }
         
     }
-
+    
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        if segue.identifier == "importDone" {
+            populateData()
+        }
+    }
     
 }
 
@@ -170,6 +177,7 @@ extension ExploreViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+
     
 }
 

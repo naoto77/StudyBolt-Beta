@@ -16,6 +16,7 @@ class CreateSetViewController: UIViewController {
     @IBOutlet var addCardView0: AddCardView! // Left
     @IBOutlet var addCardView1: AddCardView! // Center
     @IBOutlet var addCardView2: AddCardView! // Right
+
     
     var cards = [Card()]
     
@@ -95,11 +96,8 @@ class CreateSetViewController: UIViewController {
                 self.performSegueWithIdentifier("createSetDone", sender: nil)
             }
         }
-        
-        // Go back to previous VC
-//        self.navigationController?.popViewControllerAnimated(true)
-//        performSegueWithIdentifier("createSetDone", sender: nil)
     }
+    
     
     func updateLocking() {
         if addCardView1.termTextField.text.isEmpty && addCardView1.definitionTextField.text.isEmpty {

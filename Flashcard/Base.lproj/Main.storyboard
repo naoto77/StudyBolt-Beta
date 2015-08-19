@@ -91,6 +91,10 @@
                                 <state key="normal" image="Import button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="importStudySet:" destination="WIX-ra-J0v" eventType="touchUpInside" id="C6o-T3-OvS"/>
+                                    <segue destination="EfU-MP-5Ff" kind="unwind" unwindAction="unwindSegue:" id="cdz-Sr-7Fm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-q1-Rkw">
                                 <rect key="frame" x="279" y="93" width="42.5" height="30"/>
@@ -142,6 +146,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9s-W9-kh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EfU-MP-5Ff" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2506" y="-2096"/>
         </scene>
@@ -937,7 +942,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHh-lO-L0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="B7L-Er-TOH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3217" y="-608"/>
+            <point key="canvasLocation" x="3242" y="-608"/>
         </scene>
         <!--Item-->
         <scene sceneID="0Fg-b9-gS8">
@@ -1080,14 +1085,14 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="HSw-2Y-XG6"/>
-                                                    <exclude reference="krI-u0-Lm2"/>
-                                                    <exclude reference="BU6-zc-LBC"/>
                                                     <exclude reference="AC4-zp-F8g"/>
+                                                    <exclude reference="BU6-zc-LBC"/>
+                                                    <exclude reference="krI-u0-Lm2"/>
                                                     <exclude reference="LWd-mf-7hP"/>
                                                     <exclude reference="TKe-bW-Yyy"/>
+                                                    <exclude reference="5rF-I9-zNa"/>
                                                     <exclude reference="IXL-MH-ten"/>
                                                     <exclude reference="oJx-zz-QEx"/>
-                                                    <exclude reference="5rF-I9-zNa"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1170,7 +1175,7 @@
         <image name="Study button" width="92" height="92"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4hp-a6-JSk"/>
+        <segue reference="wYV-Je-NrI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
