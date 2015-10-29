@@ -12,4 +12,6 @@ class StudySetCell: UITableViewCell{
     
     @IBOutlet weak var termInStudyScene: UILabel!
     @IBOutlet weak var definitionInStudyScene: UILabel!
+    
+    
 }

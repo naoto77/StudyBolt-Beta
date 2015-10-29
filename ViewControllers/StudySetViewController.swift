@@ -23,6 +23,8 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     //declare an array to "store cardObjects" as a class property
     var cardsObjects = [Card]()
     
+    
+    //hide tab bar
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

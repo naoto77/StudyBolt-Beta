@@ -9,7 +9,7 @@
         <!--Import-->
         <scene sceneID="u4C-4L-7Nw">
             <objects>
-                <viewController id="WIX-ra-J0v" userLabel="Import" customClass="ImportViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImportViewController" id="WIX-ra-J0v" userLabel="Import" customClass="ImportViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4ID-ye-iIr"/>
                         <viewControllerLayoutGuide type="bottom" id="Cgd-2z-iDS"/>
@@ -18,12 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlL-zd-xSg">
+                                <rect key="frame" x="254" y="151" width="92" height="92"/>
+                                <state key="normal" image="Import button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="importStudySet:" destination="WIX-ra-J0v" eventType="touchUpInside" id="C6o-T3-OvS"/>
+                                    <segue destination="EfU-MP-5Ff" kind="unwind" unwindAction="unwindSegue:" id="cdz-Sr-7Fm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-q1-Rkw">
+                                <rect key="frame" x="279" y="93" width="42.5" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-dw-Bs8">
+                                <rect key="frame" x="27" y="269" width="59" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cards" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y11-Fb-M23">
+                                <rect key="frame" x="94" y="269" width="43" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bZ7-sZ-8jG">
                                 <rect key="frame" x="0.0" y="271" width="600" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="280" id="4Nu-9g-y22"/>
                                     <constraint firstAttribute="height" constant="280" id="cVn-Co-sJ0"/>
+                                    <constraint firstAttribute="height" constant="280" id="dl3-MO-Ogo"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudySetCell" rowHeight="52" id="Ulk-IZ-3vW" customClass="StudySetCell" customModule="Flashcard" customModuleProvider="target">
@@ -83,44 +111,20 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4Nu-9g-y22"/>
+                                        <exclude reference="cVn-Co-sJ0"/>
                                     </mask>
                                 </variation>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlL-zd-xSg">
-                                <rect key="frame" x="254" y="151" width="92" height="92"/>
-                                <state key="normal" image="Import button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="importStudySet:" destination="WIX-ra-J0v" eventType="touchUpInside" id="C6o-T3-OvS"/>
-                                    <segue destination="EfU-MP-5Ff" kind="unwind" unwindAction="unwindSegue:" id="cdz-Sr-7Fm"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-q1-Rkw">
-                                <rect key="frame" x="279" y="93" width="42.5" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-dw-Bs8">
-                                <rect key="frame" x="27" y="269" width="59" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cards" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y11-Fb-M23">
-                                <rect key="frame" x="94" y="269" width="43" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YlL-zd-xSg" firstAttribute="top" secondItem="2LN-q1-Rkw" secondAttribute="bottom" constant="28" id="ObI-gJ-K0Q"/>
                             <constraint firstItem="Cgd-2z-iDS" firstAttribute="top" secondItem="bZ7-sZ-8jG" secondAttribute="bottom" id="PcH-Qc-skS"/>
                             <constraint firstItem="Y11-Fb-M23" firstAttribute="leading" secondItem="gYP-dw-Bs8" secondAttribute="trailing" constant="8" id="Pwc-Mq-bcm"/>
+                            <constraint firstItem="bZ7-sZ-8jG" firstAttribute="top" secondItem="YlL-zd-xSg" secondAttribute="bottom" constant="10" id="QiE-Ht-br4"/>
                             <constraint firstAttribute="centerX" secondItem="YlL-zd-xSg" secondAttribute="centerX" id="RZI-Ie-TXD"/>
                             <constraint firstAttribute="centerX" secondItem="2LN-q1-Rkw" secondAttribute="centerX" id="U7h-F3-uXv"/>
+                            <constraint firstItem="bZ7-sZ-8jG" firstAttribute="top" secondItem="gYP-dw-Bs8" secondAttribute="bottom" constant="10" id="UQh-pI-zvg"/>
                             <constraint firstItem="Y11-Fb-M23" firstAttribute="top" secondItem="4ID-ye-iIr" secondAttribute="bottom" constant="205" id="VUO-lC-SRG"/>
                             <constraint firstItem="2LN-q1-Rkw" firstAttribute="top" secondItem="4ID-ye-iIr" secondAttribute="bottom" constant="29" id="XXp-Dt-uOE"/>
                             <constraint firstItem="gYP-dw-Bs8" firstAttribute="top" secondItem="iYF-on-zy7" secondAttribute="topMargin" constant="205" id="YEq-Ku-Jec"/>
@@ -134,6 +138,8 @@
                             <mask key="constraints">
                                 <exclude reference="YEq-Ku-Jec"/>
                                 <exclude reference="mK7-CZ-Nq2"/>
+                                <exclude reference="QiE-Ht-br4"/>
+                                <exclude reference="UQh-pI-zvg"/>
                             </mask>
                         </variation>
                     </view>
@@ -148,7 +154,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9s-W9-kh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EfU-MP-5Ff" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2506" y="-2096"/>
+            <point key="canvasLocation" x="3217" y="-2168"/>
         </scene>
         <!--Study-->
         <scene sceneID="H7X-dt-FlP">
@@ -162,8 +168,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-NW-NZF">
-                                <rect key="frame" x="0.0" y="320" width="600" height="280"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="S5l-NW-NZF">
+                                <rect key="frame" x="0.0" y="271" width="600" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="gpc-19-P1l"/>
@@ -306,10 +312,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lP-zK-ap6" userLabel="FlashCardViewL" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiH-F5-f0y" userLabel="DefinitionLeft">
-                                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JiH-F5-f0y" userLabel="DefinitionLeft">
+                                                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="100" id="dd9-q2-Q8k"/>
+                                                                            <constraint firstAttribute="height" constant="250" id="dd9-q2-Q8k"/>
                                                                             <constraint firstAttribute="width" constant="250" id="e7E-mS-1ck"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -329,11 +335,11 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-y4-MB3" userLabel="FlashCardView1" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                                 <rect key="frame" x="600" y="0.0" width="600" height="600"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermCenter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woW-6e-F5l">
-                                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermCenter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="woW-6e-F5l">
+                                                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="250" id="ZKp-sr-d1e"/>
-                                                                            <constraint firstAttribute="height" constant="100" id="ayb-Sc-DQj"/>
+                                                                            <constraint firstAttribute="height" constant="250" id="ayb-Sc-DQj"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -352,10 +358,10 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCw-bH-wDJ" userLabel="FlashCardViewR" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                                 <rect key="frame" x="1200" y="0.0" width="600" height="600"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hY1-lF-6rM" userLabel="DefinitionRight">
-                                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hY1-lF-6rM" userLabel="DefinitionRight">
+                                                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="100" id="8Ej-xa-Ev6"/>
+                                                                            <constraint firstAttribute="height" constant="250" id="8Ej-xa-Ev6"/>
                                                                             <constraint firstAttribute="width" constant="250" id="nqV-eR-j5p"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -439,11 +445,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-T6-YAs" userLabel="FlashCardView2" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="1200" width="600" height="600"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
-                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TermDOWN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="R8P-9u-s6h">
+                                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="BxU-Xw-sNq"/>
-                                                            <constraint firstAttribute="height" constant="100" id="qD8-5D-8sy"/>
+                                                            <constraint firstAttribute="height" constant="250" id="qD8-5D-8sy"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -462,11 +468,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-hY-bkJ" userLabel="FlashCardView0" customClass="FlashCardView" customModule="Flashcard" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="termUp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-rV-PW1">
-                                                        <rect key="frame" x="175" y="250" width="250" height="100"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="termUp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-rV-PW1">
+                                                        <rect key="frame" x="175" y="175" width="250" height="250"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="3Gb-9W-nqk"/>
-                                                            <constraint firstAttribute="height" constant="100" id="H6H-UE-umN"/>
+                                                            <constraint firstAttribute="height" constant="250" id="H6H-UE-umN"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -589,7 +595,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hye-mK-8xo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4115" y="-1370"/>
+            <point key="canvasLocation" x="4110" y="-1370"/>
         </scene>
         <!--Home-->
         <scene sceneID="Cmq-7E-qSO">
@@ -1175,7 +1181,7 @@
         <image name="Study button" width="92" height="92"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wYV-Je-NrI"/>
+        <segue reference="4hp-a6-JSk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

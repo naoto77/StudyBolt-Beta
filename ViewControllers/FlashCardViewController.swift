@@ -8,7 +8,6 @@
 
 import Foundation
 import Parse
-import Foundation
 
 class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     
@@ -25,7 +24,9 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
     @IBOutlet weak var flashCardView2: FlashCardView!
     @IBOutlet weak var flashCardViewL: FlashCardView!
     @IBOutlet weak var flashCardViewR: FlashCardView!
-   
+    
+    
+    
     
     
     
@@ -63,9 +64,16 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         let termString = cardsObjects[cardIndex].term
         flashCardView1.termInFlashCard.text = termString
         
+        ////Make UILavel size fit to text
+//        flashCardView1.termInFlashCard.sizeToFit()
+        
         let definitionString = cardsObjects[cardIndex].definition
         flashCardViewL.definitionInFlashCard.text = definitionString
         flashCardViewR.definitionInFlashCard.text = definitionString
+        
+        ////Make UILavel size fit to text
+//        flashCardViewL.definitionInFlashCard.sizeToFit()
+//        flashCardViewR.definitionInFlashCard.sizeToFit()
         
         
     }
@@ -96,14 +104,23 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         // Also needs to update text field content
         if cardIndex > 0 {
             flashCardView0.termInFlashCard.text = cardsObjects[cardIndex - 1].term
+            
+            //Make UILavel size fit to text
+//            flashCardView0.termInFlashCard.sizeToFit()
         } else {
             flashCardView0.termInFlashCard.text = ""
         }
         
         flashCardView1.termInFlashCard.text = cardsObjects[cardIndex].term
         
+        //Make UILavel size fit to text
+//        flashCardView1.termInFlashCard.sizeToFit()
+        
         if cardIndex + 1 < cardsObjects.count {
             flashCardView2.termInFlashCard.text = cardsObjects[cardIndex + 1].term
+            
+            //Make UILavel size fit to text
+//            flashCardView2.termInFlashCard.sizeToFit()
         } else {
             flashCardView2.termInFlashCard.text = nil
         }
@@ -117,6 +134,10 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         if cardIndex > 0 {
             flashCardViewL.definitionInFlashCard.text = cardsObjects[cardIndex - 1].definition
             flashCardViewR.definitionInFlashCard.text = cardsObjects[cardIndex - 1].definition
+            
+            //Make UILavel size fit to text
+//            flashCardViewL.definitionInFlashCard.sizeToFit()
+//            flashCardViewR.definitionInFlashCard.sizeToFit()
         } else {
             flashCardViewL.definitionInFlashCard.text = ""
             flashCardViewR.definitionInFlashCard.text = ""
@@ -124,6 +145,10 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         
         flashCardViewL.definitionInFlashCard.text = cardsObjects[cardIndex].definition
         flashCardViewR.definitionInFlashCard.text = cardsObjects[cardIndex].definition
+        
+        //Make UILavel size fit to text
+//        flashCardViewL.definitionInFlashCard.sizeToFit()
+//        flashCardViewR.definitionInFlashCard.sizeToFit()
         
     }
     

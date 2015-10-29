@@ -16,6 +16,10 @@ class StudySetsViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
+    
+    
+    
     //declare an array to "store studySetsObjects" as a class property
     var studySetsObjects = [StudySets]()
     
@@ -149,6 +153,15 @@ class StudySetsViewController: UIViewController {
         }
     }
     
+    
+    //Change selected cell's collor
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red: 126/255.0, green: 94/255.0, blue: 176/255.0, alpha: 1)
+        
+    }
+    
+    
 }
 
 
@@ -166,7 +179,6 @@ extension StudySetsViewController: UITableViewDataSource {
         
         let titleString = studySetsObjects[indexPath.row].title
         println(titleString)
-//        println(searchBar.text)
         
         let numberOfcardsString = studySetsObjects[indexPath.row].numberOfCards as! Int
         var updateDate = ""

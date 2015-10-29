@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Foundation
 
 class FlashCardView: UIView{
     
     @IBOutlet var termInFlashCard: UILabel!
     @IBOutlet var definitionInFlashCard: UILabel!
+    
+    
 }

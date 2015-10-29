@@ -13,5 +13,9 @@ class StudySetsCell: UITableViewCell {
     @IBOutlet var cardsLabel: UILabel!
     @IBOutlet var updateDateLabel: UILabel!
 
+    
+    
+    
+    
 
 }

@@ -52,7 +52,7 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
    
     
-    
+    //hide tab bar
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
