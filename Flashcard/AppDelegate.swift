@@ -15,9 +15,9 @@ import ParseUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     var parseLoginHelper: ParseLoginHelper!
     
     override init() {
@@ -34,12 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let NavBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
                 // 3
-//                self.window?.rootViewController!.presentViewController(NavBarController, animated:true, completion:nil)
+                //                self.window?.rootViewController!.presentViewController(NavBarController, animated:true, completion:nil)
                 self.window?.rootViewController = NavBarController            }
         }
     }
     
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         //Register Parse class? Ask why is this neccesary. Also do I have to register "User" too?
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //PFUser.logInWithUsername("test", password: "test")
         
-        println(PFUser.currentUser())
+        print(PFUser.currentUser())
         
         
         // Initialize Facebook
@@ -74,7 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 4
             // Otherwise set the LoginViewController to be the first
             let loginViewController = LogInViewController()
-            loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+            loginViewController.fields = [
+                PFLogInFields.UsernameAndPassword,
+                PFLogInFields.LogInButton,
+                PFLogInFields.SignUpButton,
+                PFLogInFields.PasswordForgotten,
+                PFLogInFields.Facebook
+            ]
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
             
@@ -114,28 +120,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userLoggedOut() {
         
         let loginViewController = LogInViewController()
-        loginViewController.fields = .UsernameAndPassword | .LogInButton | .SignUpButton | .PasswordForgotten | .Facebook
+        loginViewController.fields = [
+            PFLogInFields.UsernameAndPassword,
+            PFLogInFields.LogInButton,
+            PFLogInFields.SignUpButton,
+            PFLogInFields.PasswordForgotten,
+            PFLogInFields.Facebook
+        ]
         loginViewController.delegate = parseLoginHelper
         loginViewController.signUpController?.delegate = parseLoginHelper
         
         window?.rootViewController = loginViewController
     }
     
-
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     
     //MARK: Facebook Integration
     //Boilerplate code for FacebookSDK
@@ -144,14 +156,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //Boilerplate code for FacebookSDK
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    
 }
 

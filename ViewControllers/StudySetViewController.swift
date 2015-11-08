@@ -25,7 +25,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     
     
     //hide tab bar
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         hidesBottomBarWhenPushed = true
@@ -71,7 +71,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let removedCard = cardsObjects.removeAtIndex(indexPath.row)
-            removedCard.delete()
+            try! removedCard.delete()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
@@ -83,7 +83,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         }
         
         if cardsObjects.count == 0{
-            let removeStudySet = studySet.delete()
+            let removeStudySet = try! studySet.delete()
             // Bring you back to previous VC
             self.navigationController?.popViewControllerAnimated(true)
         }
@@ -120,7 +120,7 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toFlashCard"){
             //Create an instance of FlashCardViewController
-            var flashCardView: FlashCardViewController = segue.destinationViewController as! FlashCardViewController
+            let flashCardView: FlashCardViewController = segue.destinationViewController as! FlashCardViewController
             
             //store object in a variable
             let objectToFlashCard = studySet
@@ -129,13 +129,13 @@ class StudySetViewController: UIViewController, UITableViewDataSource {
         }
         
         else if(segue.identifier == "toCreateSetToEdit"){
-            var createSetView: CreateSetViewController = segue.destinationViewController as! CreateSetViewController
+            let createSetView: CreateSetViewController = segue.destinationViewController as! CreateSetViewController
             
             let objectToCreateSet = studySet
             createSetView.studySet = objectToCreateSet
             
             createSetView.cards = cardsObjects
-            createSetView.cardIndex = tableView.indexPathForSelectedRow()?.row ?? 0
+            createSetView.cardIndex = tableView.indexPathForSelectedRow?.row ?? 0
         
         }
         
