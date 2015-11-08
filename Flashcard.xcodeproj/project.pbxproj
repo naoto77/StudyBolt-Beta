@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32820B636B45B8B4CB33915C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B37B778CEB3A8D31F00B94 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		32820B636B45B8B4CB33915C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B37B778CEB3A8D31F00B94 /* Pods.framework */; };
 		5C07E4161B6EFA220037B59A /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4151B6EFA220037B59A /* ParseLoginHelper.swift */; };
 		5C07E4181B6EFAF20037B59A /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E4171B6EFAF20037B59A /* ErrorHandling.swift */; };
 		5C07E41F1B70529A0037B59A /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07E41E1B70529A0037B59A /* StyleConstants.swift */; };
@@ -286,12 +286,14 @@
 		5CCA218E1B59F2E500CCD4F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Naoto;
 				TargetAttributes = {
 					5CCA21951B59F2E500CCD4F4 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = G6WFS77Q76;
+						DevelopmentTeam = 7TGBCFKHAM;
 					};
 					5CCA21AA1B59F2E500CCD4F4 = {
 						CreatedOnToolsVersion = 6.4;

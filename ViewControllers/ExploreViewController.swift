@@ -88,7 +88,7 @@ class ExploreViewController: UIViewController{
         studySetsQuery.whereKey("user", notEqualTo:PFUser.currentUser()!)
         
         //the values are optional so unwrap it by optional binding
-        if let studySets = studySetsQuery.findObjects() as? [StudySets] {
+        if let studySets = try! studySetsQuery.findObjects() as? [StudySets] {
             studySetsObjects = studySets
             
         }
@@ -101,9 +101,9 @@ class ExploreViewController: UIViewController{
     func searchStudySetsForExplore(){
         var findStudySets = PFQuery(className: StudySets.parseClassName())
         //findStudySets.whereKey("title", containsString: searchBarInExplore.text)
-        findStudySets.whereKey("title", matchesRegex: searchBarInExplore.text, modifiers: "i")
+        findStudySets.whereKey("title", matchesRegex: searchBarInExplore.text!, modifiers: "i")
         
-        if let searchResult = findStudySets.findObjects() as? [StudySets]{
+        if let searchResult = try! findStudySets.findObjects() as? [StudySets]{
             studySetsObjects = searchResult
             
             //Reload tableView
@@ -118,14 +118,14 @@ class ExploreViewController: UIViewController{
         if(segue.identifier == "toImport"){
             var studySetView: ImportViewController = segue.destinationViewController as! ImportViewController
             
-            let indexPath = tableViewInExplore.indexPathForSelectedRow()
+            let indexPath = tableViewInExplore.indexPathForSelectedRow
             let object = studySetsObjects[indexPath!.row]
             studySetView.studySetInImport = object
             
             var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
             cardsQuery.whereKey("studySets", equalTo: object)
             //the values are optional so unwrap it by optional binding
-            if let cards = cardsQuery.findObjects() as? [Card] {
+            if let cards = try! cardsQuery.findObjects() as? [Card] {
                 studySetView.cardsObjects = cards
             }
             
@@ -155,7 +155,7 @@ extension ExploreViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("StudySetsCellInExplore") as! StudySetsCellInExplore
         
         let titleString = studySetsObjects[indexPath.row].title
-        println(titleString)
+        print(titleString)
         //        println(searchBar.text)
         
         let numberOfcardsString = studySetsObjects[indexPath.row].numberOfCards as! Int
@@ -187,7 +187,7 @@ extension ExploreViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         state = .SearchMode
-        if searchBar.text .isEmpty{
+        if searchBar.text! .isEmpty{
             populateData()
         }
     }

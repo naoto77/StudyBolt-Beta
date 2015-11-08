@@ -52,7 +52,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         cardsQuery.whereKey("studySets", equalTo: studySet)
         
         //The values are optional so unwrap it by optional binding
-        if let cards = cardsQuery.findObjects() as? [Card] {
+        if let cards = try! cardsQuery.findObjects() as? [Card] {
             cardsObjects = cards
         }
         
@@ -205,7 +205,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
 
 
 // called when scroll view grinds to a halt
-extension FlashCardViewController: UIScrollViewDelegate {
+extension FlashCardViewController {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         

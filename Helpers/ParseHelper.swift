@@ -11,7 +11,7 @@ import Parse
 
 class ParseHelper {
     
-    static func studysetRequestforCurrentUser(range: Range<Int>, completionBlock: PFArrayResultBlock) {
+    static func studysetRequestforCurrentUser(range: Range<Int>, completionBlock: PFQueryArrayResultBlock) {
         let query = PFQuery(className: "StudySets")
         query.whereKey("user", equalTo:PFUser.currentUser()!)
         

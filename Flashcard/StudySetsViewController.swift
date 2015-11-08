@@ -90,14 +90,14 @@ class StudySetsViewController: UIViewController {
         if(segue.identifier == "toStudy"){
             var studySetView: StudySetViewController = segue.destinationViewController as! StudySetViewController
             
-            let indexPath = tableView.indexPathForSelectedRow()
+            let indexPath = tableView.indexPathForSelectedRow
             let object = studySetsObjects[indexPath!.row]
             studySetView.studySet = object
 
             var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
             cardsQuery.whereKey("studySets", equalTo: object)
             //the values are optional so unwrap it by optional binding
-            if let cards = cardsQuery.findObjects() as? [Card] {
+            if let cards = try! cardsQuery.findObjects() as? [Card] {
                 studySetView.cardsObjects = cards
             }
             
@@ -109,7 +109,7 @@ class StudySetsViewController: UIViewController {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let removedStudySet = studySetsObjects.removeAtIndex(indexPath.row)
-            removedStudySet.delete()
+            try! removedStudySet.delete()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
@@ -127,7 +127,7 @@ class StudySetsViewController: UIViewController {
 
         
         //the values are optional so unwrap it by optional binding
-        if let studySets = studySetsQuery.findObjects() as? [StudySets] {
+        if let studySets = try! studySetsQuery.findObjects() as? [StudySets] {
             studySetsObjects = studySets
             
             //Reload tableView
@@ -143,8 +143,8 @@ class StudySetsViewController: UIViewController {
         var findStudySets = PFQuery(className: StudySets.parseClassName())
         findStudySets.whereKey("user", equalTo: PFUser.currentUser()!)
         //findStudySets.whereKey("title", containsString: searchBar.text)
-        findStudySets.whereKey("title", matchesRegex: searchBar.text, modifiers: "i")
-        if let searchResult = findStudySets.findObjects() as? [StudySets]{
+        findStudySets.whereKey("title", matchesRegex: searchBar.text!, modifiers: "i")
+        if let searchResult = try! findStudySets.findObjects() as? [StudySets]{
             studySetsObjects = searchResult
             
             //Reload tableView
@@ -156,7 +156,7 @@ class StudySetsViewController: UIViewController {
     
     //Change selected cell's collor
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        let selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 126/255.0, green: 94/255.0, blue: 176/255.0, alpha: 1)
         
     }
@@ -178,7 +178,7 @@ extension StudySetsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("StudySetsCell") as! StudySetsCell
         
         let titleString = studySetsObjects[indexPath.row].title
-        println(titleString)
+        print(titleString)
         
         let numberOfcardsString = studySetsObjects[indexPath.row].numberOfCards as! Int
         var updateDate = ""
@@ -208,7 +208,7 @@ extension StudySetsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         state = .SearchMode
-        if searchBar.text .isEmpty{
+        if searchBar.text!.isEmpty{
             populateData()
         }
     }

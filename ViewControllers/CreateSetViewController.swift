@@ -100,7 +100,7 @@ class CreateSetViewController: UIViewController {
     
     
     func updateLocking() {
-        if addCardView1.termTextField.text.isEmpty && addCardView1.definitionTextField.text.isEmpty {
+        if addCardView1.termTextField.text!.isEmpty && addCardView1.definitionTextField.text!.isEmpty {
             if cardIndex <= 0 {
                 lockScrollView()
             } else {
@@ -147,7 +147,7 @@ class CreateSetViewController: UIViewController {
         if cardIndex > 0 {
             addCardView0.termTextField.text = cards[cardIndex - 1].term
             addCardView0.definitionTextField.text = cards[cardIndex - 1].definition
-            println(cardIndex)
+            print(cardIndex)
         }
         
         addCardView1.termTextField.text = cards[cardIndex].term
@@ -156,12 +156,12 @@ class CreateSetViewController: UIViewController {
         if cardIndex + 1 < cards.count {
             addCardView2.termTextField.text = cards[cardIndex + 1].term
             addCardView2.definitionTextField.text = cards[cardIndex + 1].definition
-            println(cardIndex)
+            print(cardIndex)
             
         } else {
             addCardView2.termTextField.text = nil
             addCardView2.definitionTextField.text = nil
-            println(cardIndex)
+            print(cardIndex)
         }
     }
     

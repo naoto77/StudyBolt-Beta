@@ -30,7 +30,7 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         copyOfAStudySet.numberOfCards = studySetInImport.numberOfCards
         copyOfAStudySet.saveInBackground()
         
-        println(cardsObjects)
+        print(cardsObjects)
         
         var copyOfCards = [Card]()
         
@@ -44,7 +44,7 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
             copyOfCards[i].studySets = copyOfAStudySet
             copyOfCards[i].saveInBackground()
             
-            println(copyOfCards[i].term)
+            print(copyOfCards[i].term)
             
         }
     }
@@ -53,7 +53,7 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
    
     
     //hide tab bar
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         hidesBottomBarWhenPushed = true
