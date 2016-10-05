@@ -11,13 +11,13 @@ import Parse
 import ParseUI
 
 
-class LogInViewController : PFLogInViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = StyleConstants.pastelPurple
-        self.signUpController?.signUpView?.backgroundColor = StyleConstants.pastelPurple
-        
-        self.logInView!.logo = UIImageView(image: UIImage(named:"Logo"))
-        self.signUpController?.signUpView?.logo = UIImageView(image: UIImage(named:"Logo"))
-    }
-}
+//class LogInViewController : PFLogInViewController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.view.backgroundColor = StyleConstants.pastelPurple
+//        self.signUpController?.signUpView?.backgroundColor = StyleConstants.pastelPurple
+//        
+//        self.logInView!.logo = UIImageView(image: UIImage(named:"Logo"))
+//        self.signUpController?.signUpView?.logo = UIImageView(image: UIImage(named:"Logo"))
+//    }
+//}

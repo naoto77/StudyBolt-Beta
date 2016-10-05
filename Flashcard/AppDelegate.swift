@@ -46,13 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StudySets.registerSubclass()
         Card.registerSubclass()
         
-        
         Parse.setApplicationId("qHfjy6kpBVVbVRC2Wne4t3h40iO1AUwZNvybFQBz", clientKey: "bRjnuE2RwhrO5MxCLQImlm5nPyD8vqYfvdl772xg")
         
         
         //PFUser.logInWithUsername("test", password: "test")
         
-        print(PFUser.currentUser())
+//        print(PFUser.currentUser())
+        print("test")
         
         
         // Initialize Facebook
@@ -69,22 +69,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 3
             // if we have a user, set the NavBarController to be the initial View Controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // 最初に遷移するviewControllerを設定
             startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
         } else {
-            // 4
-            // Otherwise set the LoginViewController to be the first
-            let loginViewController = LogInViewController()
-            loginViewController.fields = [
-                PFLogInFields.UsernameAndPassword,
-                PFLogInFields.LogInButton,
-                PFLogInFields.SignUpButton,
-                PFLogInFields.PasswordForgotten,
-                PFLogInFields.Facebook
-            ]
-            loginViewController.delegate = parseLoginHelper
-            loginViewController.signUpController?.delegate = parseLoginHelper
+            // Parseのログイン機能を用いた実装
+//            let loginViewController = LogInViewController()
+//            loginViewController.fields = [
+//                PFLogInFields.UsernameAndPassword,
+//                PFLogInFields.LogInButton,
+//                PFLogInFields.SignUpButton,
+//                PFLogInFields.PasswordForgotten,
+//                PFLogInFields.Facebook
+//            ]
+//            loginViewController.delegate = parseLoginHelper
+//            loginViewController.signUpController?.delegate = parseLoginHelper
             
-            startViewController = loginViewController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // 最初に遷移するviewControllerを設定
+            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
         }
         
         // 5
@@ -104,9 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIToolbar.appearance().translucent = false
         
         
-        
-        //NSNotification with func logout in setting
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userLoggedOut"), name: "UserLoggedOut", object: nil)
+        //通知をオブザーブして受け取る登録
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userLoggedOut"), name: "UserLoggedOut", object: nil)
         
         //Set UIStatusBar color white
         UIApplication.sharedApplication().statusBarStyle = .LightContent
@@ -116,22 +117,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-    
-    func userLoggedOut() {
-        
-        let loginViewController = LogInViewController()
-        loginViewController.fields = [
-            PFLogInFields.UsernameAndPassword,
-            PFLogInFields.LogInButton,
-            PFLogInFields.SignUpButton,
-            PFLogInFields.PasswordForgotten,
-            PFLogInFields.Facebook
-        ]
-        loginViewController.delegate = parseLoginHelper
-        loginViewController.signUpController?.delegate = parseLoginHelper
-        
-        window?.rootViewController = loginViewController
-    }
+    //Parseの機能を用いたログアウト処理
+//    func userLoggedOut() {
+//        
+//        let loginViewController = LogInViewController()
+//        loginViewController.fields = [
+//            PFLogInFields.UsernameAndPassword,
+//            PFLogInFields.LogInButton,
+//            PFLogInFields.SignUpButton,
+//            PFLogInFields.PasswordForgotten,
+//            PFLogInFields.Facebook
+//        ]
+//        loginViewController.delegate = parseLoginHelper
+//        loginViewController.signUpController?.delegate = parseLoginHelper
+//        
+//        window?.rootViewController = loginViewController
+//    }
     
     
     func applicationWillResignActive(application: UIApplication) {
