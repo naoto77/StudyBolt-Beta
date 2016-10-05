@@ -83,7 +83,7 @@ class ExploreViewController: UIViewController{
     func populateData(){
         
         //fetch Card class from Parse and sort it by StudySets pointer
-        var studySetsQuery = PFQuery(className: StudySets.parseClassName())//StudySets.parseClassName is same as "StudySets"
+        let studySetsQuery = PFQuery(className: StudySets.parseClassName())//StudySets.parseClassName is same as "StudySets"
         
         studySetsQuery.whereKey("user", notEqualTo:PFUser.currentUser()!)
         
@@ -99,7 +99,7 @@ class ExploreViewController: UIViewController{
     
     //search query
     func searchStudySetsForExplore(){
-        var findStudySets = PFQuery(className: StudySets.parseClassName())
+        let findStudySets = PFQuery(className: StudySets.parseClassName())
         //findStudySets.whereKey("title", containsString: searchBarInExplore.text)
         findStudySets.whereKey("title", matchesRegex: searchBarInExplore.text!, modifiers: "i")
         
@@ -116,13 +116,13 @@ class ExploreViewController: UIViewController{
     //pass values from Explore to Import
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toImport"){
-            var studySetView: ImportViewController = segue.destinationViewController as! ImportViewController
+            let studySetView: ImportViewController = segue.destinationViewController as! ImportViewController
             
             let indexPath = tableViewInExplore.indexPathForSelectedRow
             let object = studySetsObjects[indexPath!.row]
             studySetView.studySetInImport = object
             
-            var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
+            let cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
             cardsQuery.whereKey("studySets", equalTo: object)
             //the values are optional so unwrap it by optional binding
             if let cards = try! cardsQuery.findObjects() as? [Card] {
@@ -163,7 +163,7 @@ extension ExploreViewController: UITableViewDataSource, UITableViewDelegate {
         
         //Unwrap optional value
         if let updatedAt = studySetsObjects[indexPath.row].updatedAt{
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "M/d/yy"
             updateDate = dateFormatter.stringFromDate(updatedAt)
         }

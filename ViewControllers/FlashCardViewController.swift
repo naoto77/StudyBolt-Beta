@@ -46,7 +46,7 @@ class FlashCardViewController: UIViewController, UIScrollViewDelegate{
         
         
         //Query to fetch Card class from Parse
-        var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
+        let cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
         
         //Sort query by studySet pointer
         cardsQuery.whereKey("studySets", equalTo: studySet)

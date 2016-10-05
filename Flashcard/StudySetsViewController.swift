@@ -88,13 +88,13 @@ class StudySetsViewController: UIViewController {
     //pass values from StudySets to StudySet
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toStudy"){
-            var studySetView: StudySetViewController = segue.destinationViewController as! StudySetViewController
+            let studySetView: StudySetViewController = segue.destinationViewController as! StudySetViewController
             
             let indexPath = tableView.indexPathForSelectedRow
             let object = studySetsObjects[indexPath!.row]
             studySetView.studySet = object
 
-            var cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
+            let cardsQuery = PFQuery(className: Card.parseClassName())//Card.parseClassName is same as "Card"
             cardsQuery.whereKey("studySets", equalTo: object)
             //the values are optional so unwrap it by optional binding
             if let cards = try! cardsQuery.findObjects() as? [Card] {
@@ -121,7 +121,7 @@ class StudySetsViewController: UIViewController {
     func populateData(){
         
         //fetch Card class from Parse and sort it by StudySets pointer
-        var studySetsQuery = PFQuery(className: StudySets.parseClassName())//StudySets.parseClassName is same as "StudySets"
+        let studySetsQuery = PFQuery(className: StudySets.parseClassName())//StudySets.parseClassName is same as "StudySets"
         
         studySetsQuery.whereKey("user", equalTo:PFUser.currentUser()!)
 
@@ -140,7 +140,7 @@ class StudySetsViewController: UIViewController {
     
     //search query
     func searchStudySets(){
-        var findStudySets = PFQuery(className: StudySets.parseClassName())
+        let findStudySets = PFQuery(className: StudySets.parseClassName())
         findStudySets.whereKey("user", equalTo: PFUser.currentUser()!)
         //findStudySets.whereKey("title", containsString: searchBar.text)
         findStudySets.whereKey("title", matchesRegex: searchBar.text!, modifiers: "i")
@@ -185,7 +185,7 @@ extension StudySetsViewController: UITableViewDataSource {
         
         //Unwrap optional value
         if let updatedAt = studySetsObjects[indexPath.row].updatedAt{
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "M/d/yy"
             updateDate = dateFormatter.stringFromDate(updatedAt)
         }

@@ -15,7 +15,7 @@ class SettingViewController: UITableViewController, PFLogInViewControllerDelegat
     
     @IBAction func logout(sender: AnyObject!){
         PFUser.logOut()
-        var currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         if currentUser == nil {}
         
         //NSNotification with func application in appDelegate

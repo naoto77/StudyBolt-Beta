@@ -23,7 +23,7 @@ class ImportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func importStudySet (sender: AnyObject) {
         
         // Variables
-        var copyOfAStudySet = StudySets()
+        let copyOfAStudySet = StudySets()
         
         copyOfAStudySet.user = PFUser.currentUser()
         copyOfAStudySet.title = studySetInImport.title
