@@ -1,7 +1,7 @@
 platform :ios, '8.0'
 
 use_frameworks!
-
+target 'Flashcard' do
 pod 'Parse'
 pod 'ConvenienceKit'
 pod 'FBSDKCoreKit'
@@ -9,4 +9,4 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'ParseFacebookUtilsV4'
 pod 'ParseUI'
-
+end
